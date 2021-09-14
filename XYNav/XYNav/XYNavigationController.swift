@@ -7,6 +7,17 @@
 
 import UIKit
 
+func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController) -> UIViewController {
+    let contVC = UIViewController()
+    
+    let nav = XYContentNavController(rootViewController: desVC)
+    nav.superNav = superNav
+    contVC.addChild(nav)
+    contVC.view.addSubview(nav.view)
+    
+    return contVC
+}
+
 class XYNavigationController: UINavigationController {
 
     override func viewDidLoad() {
@@ -42,16 +53,8 @@ class XYNavigationController: UINavigationController {
             return
         }
         
-        let contVC = UIViewController()
-        contVC.view.backgroundColor = .groupTableViewBackground
-        
-        let desVC = rootVC
-        let nav = XYContentNavController(rootViewController: desVC)
-        nav.superNav = self
-        contVC.addChild(nav)
-        contVC.view.addSubview(nav.view)
-        
-        self.setViewControllers([contVC], animated: true)
+        let newVC = warpNewPushVC(rootVC, self)
+        self.setViewControllers([newVC], animated: true)
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
