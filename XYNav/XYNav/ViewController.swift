@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBAction func push(_ sender: Any) {
         
         let contVC = UIViewController()
-        contVC.view.backgroundColor = .groupTableViewBackground
+        contVC.view.backgroundColor = .yellow
         self.navigationController?.pushViewController(contVC, animated: true)
     }
     

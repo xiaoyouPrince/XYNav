@@ -20,4 +20,14 @@ class XYContentNavController: UINavigationController {
             super.pushViewController(viewController, animated: animated)
         }
     }
+    
+    override func popViewController(animated: Bool) -> UIViewController? {
+        if self.superNav is XYNavigationController {
+            return self.superNav?.popViewController(animated: true)
+        }else{
+            super.popViewController(animated: animated)
+        }
+        
+        return nil
+    }
 }
