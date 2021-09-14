@@ -25,17 +25,7 @@ class ViewController: UIViewController {
     
     @IBAction func push2(_ sender: Any) {
         
-        let contVC = UIViewController()
-        contVC.view.backgroundColor = .groupTableViewBackground
-        
-        let desVC = DestViewController()
-        desVC.view.backgroundColor = .green
-        let nav = XYContentNavController(rootViewController: desVC)
-        contVC.addChild(nav)
-        contVC.view.addSubview(nav.view)
-        
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
-//        self.navigationController?.navigationBar.isHidden = true
+        let contVC = DestViewController()
         self.navigationController?.pushViewController(contVC, animated: true)
     }
 }

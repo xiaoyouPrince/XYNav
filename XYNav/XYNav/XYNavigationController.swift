@@ -58,7 +58,8 @@ class XYNavigationController: UINavigationController {
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        super.pushViewController(viewController, animated: animated)
+        let newVC = warpNewPushVC(viewController, self)
+        super.pushViewController(newVC, animated: animated)
     }
 
 }

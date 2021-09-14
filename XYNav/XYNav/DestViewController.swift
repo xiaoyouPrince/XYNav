@@ -13,6 +13,7 @@ class DestViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = .green
         
         self.title = "你好"
         if #available(iOS 14.0, *) {
@@ -20,8 +21,10 @@ class DestViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barTintColor = .red
     }
     
     @objc
