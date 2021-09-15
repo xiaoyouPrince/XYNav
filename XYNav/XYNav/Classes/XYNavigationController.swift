@@ -18,9 +18,10 @@ func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController
     return contVC
 }
 
+open
 class XYNavigationController: UINavigationController {
 
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -38,15 +39,15 @@ class XYNavigationController: UINavigationController {
         navigationBar.isHidden = true
     }
     
-    override init(rootViewController: UIViewController) {
+    public override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         guard let rootVC = self.viewControllers.first else {
@@ -57,7 +58,7 @@ class XYNavigationController: UINavigationController {
         self.setViewControllers([newVC], animated: true)
     }
     
-    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         let newVC = warpNewPushVC(viewController, self)
         super.pushViewController(newVC, animated: animated)
     }
