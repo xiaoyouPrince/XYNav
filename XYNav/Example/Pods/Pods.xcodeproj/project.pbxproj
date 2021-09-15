@@ -1,0 +1,774 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41979921B9E9A848578AD5AFA0E29D04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		4BB4AAE7E4DEF6231301AC9AF5BFE228 /* XYNav-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE27584330C5A54DEBAA056C29EEF6 /* XYNav-dummy.m */; };
+		531385C12164787296A63997D2160856 /* XYNav-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1178B9AA9CCA4EF7E63F6C60C73BA8D7 /* XYNav-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		699D22029936CC12C83698C4D9611DF0 /* Pods-XYNav_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FF4A7805CD6B81306C4576681A84BF /* Pods-XYNav_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BAAAB6EFDD0515D583640C5D55D20D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		6E92B2796107E2F45FCAD6583D89AFDD /* Pods-XYNav_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8141251457705A29B53E183132060AE4 /* Pods-XYNav_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		771455BF11881116087603542DAD3D02 /* Pods-XYNav_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F56934F22CE925DEFB9B98FDCE8E52CB /* Pods-XYNav_Tests-dummy.m */; };
+		AB4590115C5E080A20756E4890EAAA66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C1D55904716589FA14A74AD7096CCD58 /* XYContentNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A82382DF4AB348576152B565C243FC /* XYContentNavController.swift */; };
+		CB316E406700E5052245256088A2986E /* Pods-XYNav_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 467C1963B086E7B4081420E2C4A6602B /* Pods-XYNav_Example-dummy.m */; };
+		E23B3B576174731E86BD3FF20B1D1F58 /* XYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286486924910A3F113DFB70D0B57714A /* XYNavigationController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		688408A24D8550B67F28FA1BE2B247AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E04806A7E46BE7BD4C55A681F161894A;
+			remoteInfo = "Pods-XYNav_Example";
+		};
+		A3033CCAC71AC5FC727964BE960DE714 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FEEF5991451E82B8FA4872775140F82;
+			remoteInfo = XYNav;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0FE8CF3FFC280804B5E532C1B3BEFFA2 /* Pods-XYNav_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYNav_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1178B9AA9CCA4EF7E63F6C60C73BA8D7 /* XYNav-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYNav-umbrella.h"; sourceTree = "<group>"; };
+		173A980993786D80F25996AD488C5B25 /* XYNav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYNav.release.xcconfig; sourceTree = "<group>"; };
+		1C92880501B2A774D56587A0482560EA /* Pods-XYNav_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-XYNav_Tests.modulemap"; sourceTree = "<group>"; };
+		286486924910A3F113DFB70D0B57714A /* XYNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYNavigationController.swift; path = XYNav/Classes/XYNavigationController.swift; sourceTree = "<group>"; };
+		2BA31E92669E5247DF3530D134D93A47 /* XYNav-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "XYNav-Info.plist"; sourceTree = "<group>"; };
+		3B066B55165A6B7D93319A005AC788B9 /* Pods-XYNav_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XYNav_Example-frameworks.sh"; sourceTree = "<group>"; };
+		467C1963B086E7B4081420E2C4A6602B /* Pods-XYNav_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYNav_Example-dummy.m"; sourceTree = "<group>"; };
+		4859B83F66FCDCBEF062991675D9B24D /* Pods-XYNav_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYNav_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		53FDD20269EEC9E6CCF480C0676B38B7 /* Pods_XYNav_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XYNav_Tests.framework; path = "Pods-XYNav_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A82382DF4AB348576152B565C243FC /* XYContentNavController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYContentNavController.swift; path = XYNav/Classes/XYContentNavController.swift; sourceTree = "<group>"; };
+		5A9A122FB0FB724A64FA7A19969C4DF6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		63E3945A1F26B4BCD72AD947F46DA798 /* XYNav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYNav.debug.xcconfig; sourceTree = "<group>"; };
+		67FF4A7805CD6B81306C4576681A84BF /* Pods-XYNav_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYNav_Example-umbrella.h"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		8141251457705A29B53E183132060AE4 /* Pods-XYNav_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYNav_Tests-umbrella.h"; sourceTree = "<group>"; };
+		8E0080113317C970107E68F0A492984E /* XYNav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYNav.framework; path = XYNav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A4CD2DF6FC743480D8624B836374E2C /* XYNav.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYNav.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EBE27584330C5A54DEBAA056C29EEF6 /* XYNav-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYNav-dummy.m"; sourceTree = "<group>"; };
+		BFFED91C8E09CC2D90ED963A6397C346 /* Pods-XYNav_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYNav_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		C065A8DB249D8EAA60BD50D8EB52D655 /* Pods-XYNav_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYNav_Example-Info.plist"; sourceTree = "<group>"; };
+		C2E6859657070FDB1CC05E8C7C53B73D /* XYNav-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYNav-prefix.pch"; sourceTree = "<group>"; };
+		D234C6A06D3D8A54EB7A75588E30B534 /* Pods-XYNav_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-XYNav_Example.modulemap"; sourceTree = "<group>"; };
+		D5C49559A14372DC6D8D761AF9515BD9 /* Pods-XYNav_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYNav_Tests-Info.plist"; sourceTree = "<group>"; };
+		E0AAD6921B92539ACACA85DDB2381B0C /* Pods-XYNav_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYNav_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E826B3653804063514601CB14FB9F6BD /* Pods-XYNav_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYNav_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F043FCD080314345AD03834786BC29A2 /* XYNav.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYNav.modulemap; sourceTree = "<group>"; };
+		F2BAFF7B22A12FC9C83E97EB38AF4F7D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		F2F394204B68318B0EBDB9961B6FDDAA /* Pods-XYNav_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYNav_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		F3515BE2006EEF7E8EBE3C5303933399 /* Pods_XYNav_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XYNav_Example.framework; path = "Pods-XYNav_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F51DEF514ADB1DEC3B17834AC588A504 /* Pods-XYNav_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYNav_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		F56934F22CE925DEFB9B98FDCE8E52CB /* Pods-XYNav_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYNav_Tests-dummy.m"; sourceTree = "<group>"; };
+		F8B4011B68BED7400F9B195213CF6C0C /* Pods-XYNav_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYNav_Example.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0BB9FCE983002B9D37E6C5BF1354EDE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BAAAB6EFDD0515D583640C5D55D20D7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		271A1DE93F359EDB5B97A6E40EFE1E32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41979921B9E9A848578AD5AFA0E29D04 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF85F11D071D39CDA8026D495DC4024C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4590115C5E080A20756E4890EAAA66 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22650561216205EF9B73E115BB4B92B2 /* XYNav */ = {
+			isa = PBXGroup;
+			children = (
+				56A82382DF4AB348576152B565C243FC /* XYContentNavController.swift */,
+				286486924910A3F113DFB70D0B57714A /* XYNavigationController.swift */,
+				F8E936D4AA64C3FAC9C0084F8FEB9203 /* Pod */,
+				F4996156F7DD35D9A2867970DB6C252F /* Support Files */,
+			);
+			name = XYNav;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		5147DD7BAE3FCE93E2880735E7535244 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				22650561216205EF9B73E115BB4B92B2 /* XYNav */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		8C0A3ADF12625AC735104565C3CE8782 /* Pods-XYNav_Example */ = {
+			isa = PBXGroup;
+			children = (
+				D234C6A06D3D8A54EB7A75588E30B534 /* Pods-XYNav_Example.modulemap */,
+				E826B3653804063514601CB14FB9F6BD /* Pods-XYNav_Example-acknowledgements.markdown */,
+				BFFED91C8E09CC2D90ED963A6397C346 /* Pods-XYNav_Example-acknowledgements.plist */,
+				467C1963B086E7B4081420E2C4A6602B /* Pods-XYNav_Example-dummy.m */,
+				3B066B55165A6B7D93319A005AC788B9 /* Pods-XYNav_Example-frameworks.sh */,
+				C065A8DB249D8EAA60BD50D8EB52D655 /* Pods-XYNav_Example-Info.plist */,
+				67FF4A7805CD6B81306C4576681A84BF /* Pods-XYNav_Example-umbrella.h */,
+				4859B83F66FCDCBEF062991675D9B24D /* Pods-XYNav_Example.debug.xcconfig */,
+				F8B4011B68BED7400F9B195213CF6C0C /* Pods-XYNav_Example.release.xcconfig */,
+			);
+			name = "Pods-XYNav_Example";
+			path = "Target Support Files/Pods-XYNav_Example";
+			sourceTree = "<group>";
+		};
+		9FDE2C97DC571C5CDE4847A93C8E5F83 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F3515BE2006EEF7E8EBE3C5303933399 /* Pods_XYNav_Example.framework */,
+				53FDD20269EEC9E6CCF480C0676B38B7 /* Pods_XYNav_Tests.framework */,
+				8E0080113317C970107E68F0A492984E /* XYNav.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2056CC925273FFE6F24933B30209D5B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C0A3ADF12625AC735104565C3CE8782 /* Pods-XYNav_Example */,
+				F52044FE9AC7DC852C1676CF51A2CA88 /* Pods-XYNav_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				5147DD7BAE3FCE93E2880735E7535244 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				9FDE2C97DC571C5CDE4847A93C8E5F83 /* Products */,
+				B2056CC925273FFE6F24933B30209D5B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4996156F7DD35D9A2867970DB6C252F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F043FCD080314345AD03834786BC29A2 /* XYNav.modulemap */,
+				9EBE27584330C5A54DEBAA056C29EEF6 /* XYNav-dummy.m */,
+				2BA31E92669E5247DF3530D134D93A47 /* XYNav-Info.plist */,
+				C2E6859657070FDB1CC05E8C7C53B73D /* XYNav-prefix.pch */,
+				1178B9AA9CCA4EF7E63F6C60C73BA8D7 /* XYNav-umbrella.h */,
+				63E3945A1F26B4BCD72AD947F46DA798 /* XYNav.debug.xcconfig */,
+				173A980993786D80F25996AD488C5B25 /* XYNav.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/XYNav";
+			sourceTree = "<group>";
+		};
+		F52044FE9AC7DC852C1676CF51A2CA88 /* Pods-XYNav_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1C92880501B2A774D56587A0482560EA /* Pods-XYNav_Tests.modulemap */,
+				0FE8CF3FFC280804B5E532C1B3BEFFA2 /* Pods-XYNav_Tests-acknowledgements.markdown */,
+				F51DEF514ADB1DEC3B17834AC588A504 /* Pods-XYNav_Tests-acknowledgements.plist */,
+				F56934F22CE925DEFB9B98FDCE8E52CB /* Pods-XYNav_Tests-dummy.m */,
+				D5C49559A14372DC6D8D761AF9515BD9 /* Pods-XYNav_Tests-Info.plist */,
+				8141251457705A29B53E183132060AE4 /* Pods-XYNav_Tests-umbrella.h */,
+				F2F394204B68318B0EBDB9961B6FDDAA /* Pods-XYNav_Tests.debug.xcconfig */,
+				E0AAD6921B92539ACACA85DDB2381B0C /* Pods-XYNav_Tests.release.xcconfig */,
+			);
+			name = "Pods-XYNav_Tests";
+			path = "Target Support Files/Pods-XYNav_Tests";
+			sourceTree = "<group>";
+		};
+		F8E936D4AA64C3FAC9C0084F8FEB9203 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				5A9A122FB0FB724A64FA7A19969C4DF6 /* LICENSE */,
+				F2BAFF7B22A12FC9C83E97EB38AF4F7D /* README.md */,
+				9A4CD2DF6FC743480D8624B836374E2C /* XYNav.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		090B9568B0292A321E124428FF50EBFB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				699D22029936CC12C83698C4D9611DF0 /* Pods-XYNav_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3906013701690FC860AA39CB86478040 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E92B2796107E2F45FCAD6583D89AFDD /* Pods-XYNav_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9796825C20326477C15FBACE8CD5A481 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				531385C12164787296A63997D2160856 /* XYNav-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7FEEF5991451E82B8FA4872775140F82 /* XYNav */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD85C2A6636A489BDCA2B938229E0835 /* Build configuration list for PBXNativeTarget "XYNav" */;
+			buildPhases = (
+				9796825C20326477C15FBACE8CD5A481 /* Headers */,
+				2703F7A8FFD29D1C6B2CE3CDFF486A76 /* Sources */,
+				CF85F11D071D39CDA8026D495DC4024C /* Frameworks */,
+				FE8013A172BCBAC7555957DF9C1D459A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XYNav;
+			productName = XYNav;
+			productReference = 8E0080113317C970107E68F0A492984E /* XYNav.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CA4A560A340D0B7E144DD1E87B68D86E /* Pods-XYNav_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49BFD5A91F4A969B33D85B697C97AEE1 /* Build configuration list for PBXNativeTarget "Pods-XYNav_Tests" */;
+			buildPhases = (
+				3906013701690FC860AA39CB86478040 /* Headers */,
+				117FC1141AD4202848252004F22C57C7 /* Sources */,
+				271A1DE93F359EDB5B97A6E40EFE1E32 /* Frameworks */,
+				3E72ACCC9F794C596E376C33A1620F30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B130132E35C095C6AEF4BDFCBCA4997 /* PBXTargetDependency */,
+			);
+			name = "Pods-XYNav_Tests";
+			productName = "Pods-XYNav_Tests";
+			productReference = 53FDD20269EEC9E6CCF480C0676B38B7 /* Pods_XYNav_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E04806A7E46BE7BD4C55A681F161894A /* Pods-XYNav_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E4E10BE74C9764E3A3EF74C819E4D32 /* Build configuration list for PBXNativeTarget "Pods-XYNav_Example" */;
+			buildPhases = (
+				090B9568B0292A321E124428FF50EBFB /* Headers */,
+				5C4E8C53363A3B406CE760ECC905315B /* Sources */,
+				0BB9FCE983002B9D37E6C5BF1354EDE5 /* Frameworks */,
+				08B8D160D17DA8B38B5648158481596C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1AA8308398A6FD72B035C0C95D7497F4 /* PBXTargetDependency */,
+			);
+			name = "Pods-XYNav_Example";
+			productName = "Pods-XYNav_Example";
+			productReference = F3515BE2006EEF7E8EBE3C5303933399 /* Pods_XYNav_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 9FDE2C97DC571C5CDE4847A93C8E5F83 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E04806A7E46BE7BD4C55A681F161894A /* Pods-XYNav_Example */,
+				CA4A560A340D0B7E144DD1E87B68D86E /* Pods-XYNav_Tests */,
+				7FEEF5991451E82B8FA4872775140F82 /* XYNav */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		08B8D160D17DA8B38B5648158481596C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E72ACCC9F794C596E376C33A1620F30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE8013A172BCBAC7555957DF9C1D459A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		117FC1141AD4202848252004F22C57C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				771455BF11881116087603542DAD3D02 /* Pods-XYNav_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2703F7A8FFD29D1C6B2CE3CDFF486A76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1D55904716589FA14A74AD7096CCD58 /* XYContentNavController.swift in Sources */,
+				4BB4AAE7E4DEF6231301AC9AF5BFE228 /* XYNav-dummy.m in Sources */,
+				E23B3B576174731E86BD3FF20B1D1F58 /* XYNavigationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C4E8C53363A3B406CE760ECC905315B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB316E406700E5052245256088A2986E /* Pods-XYNav_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1AA8308398A6FD72B035C0C95D7497F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XYNav;
+			target = 7FEEF5991451E82B8FA4872775140F82 /* XYNav */;
+			targetProxy = A3033CCAC71AC5FC727964BE960DE714 /* PBXContainerItemProxy */;
+		};
+		2B130132E35C095C6AEF4BDFCBCA4997 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-XYNav_Example";
+			target = E04806A7E46BE7BD4C55A681F161894A /* Pods-XYNav_Example */;
+			targetProxy = 688408A24D8550B67F28FA1BE2B247AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0851270B46FCE71E86819A3C7EBA7D9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8B4011B68BED7400F9B195213CF6C0C /* Pods-XYNav_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-XYNav_Example/Pods-XYNav_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-XYNav_Example/Pods-XYNav_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		3F90308A55AE5F0639CFA73E079F2F2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4859B83F66FCDCBEF062991675D9B24D /* Pods-XYNav_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-XYNav_Example/Pods-XYNav_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-XYNav_Example/Pods-XYNav_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4D182CA03E3C6C23BD2EFF917D8C1DC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0AAD6921B92539ACACA85DDB2381B0C /* Pods-XYNav_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-XYNav_Tests/Pods-XYNav_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-XYNav_Tests/Pods-XYNav_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		960227DDAC00972E5AC91B259A3273CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 173A980993786D80F25996AD488C5B25 /* XYNav.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/XYNav/XYNav-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/XYNav/XYNav-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYNav/XYNav.modulemap";
+				PRODUCT_MODULE_NAME = XYNav;
+				PRODUCT_NAME = XYNav;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B292CE6B6BD35D47C08D34D885D5D342 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63E3945A1F26B4BCD72AD947F46DA798 /* XYNav.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/XYNav/XYNav-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/XYNav/XYNav-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/XYNav/XYNav.modulemap";
+				PRODUCT_MODULE_NAME = XYNav;
+				PRODUCT_NAME = XYNav;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		FB875410F5047C55814E1351DE2A6E2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2F394204B68318B0EBDB9961B6FDDAA /* Pods-XYNav_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-XYNav_Tests/Pods-XYNav_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-XYNav_Tests/Pods-XYNav_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
+				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49BFD5A91F4A969B33D85B697C97AEE1 /* Build configuration list for PBXNativeTarget "Pods-XYNav_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB875410F5047C55814E1351DE2A6E2C /* Debug */,
+				4D182CA03E3C6C23BD2EFF917D8C1DC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E4E10BE74C9764E3A3EF74C819E4D32 /* Build configuration list for PBXNativeTarget "Pods-XYNav_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F90308A55AE5F0639CFA73E079F2F2D /* Debug */,
+				0851270B46FCE71E86819A3C7EBA7D9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD85C2A6636A489BDCA2B938229E0835 /* Build configuration list for PBXNativeTarget "XYNav" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B292CE6B6BD35D47C08D34D885D5D342 /* Debug */,
+				960227DDAC00972E5AC91B259A3273CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

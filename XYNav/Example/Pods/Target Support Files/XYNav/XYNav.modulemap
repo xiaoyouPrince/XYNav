@@ -1,0 +1,6 @@
+framework module XYNav {
+  umbrella header "XYNav-umbrella.h"
+
+  export *
+  module * { export * }
+}
