@@ -21,9 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
+        // 直接通过 rootViewController 创建
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
-        window?.rootViewController = XYNavigationController(rootViewController: vc)
         
+        let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabVC")
+        tabVC.addChild(XYNavigationController(rootViewController: vc))
+        window?.rootViewController = tabVC
+        
+        // UIStoryboard 直接创建
 //        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "xynav")
 //        window?.rootViewController = vc
         

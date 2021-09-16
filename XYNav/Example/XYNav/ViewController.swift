@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     @IBAction func push2(_ sender: Any) {
         
         let contVC = DestViewController()
+        contVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(contVC, animated: true)
     }
 }

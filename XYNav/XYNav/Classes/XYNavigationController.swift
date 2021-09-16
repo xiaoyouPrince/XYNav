@@ -9,6 +9,7 @@ import UIKit
 
 func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController) -> UIViewController {
     let contVC = UIViewController()
+    contVC.hidesBottomBarWhenPushed = desVC.hidesBottomBarWhenPushed
     
     let nav = XYContentNavController(rootViewController: desVC)
     nav.superNav = superNav
@@ -20,7 +21,14 @@ func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController
 
 open
 class XYNavigationController: UINavigationController {
+    
+    // MARK: - open vars
+    
+    
+    
 
+    // MARK: - life circle
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,10 +66,11 @@ class XYNavigationController: UINavigationController {
     
     open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         let newVC = warpNewPushVC(viewController, self)
+        if viewControllers.count > 0 {
+            newVC.hidesBottomBarWhenPushed = true
+        }
         super.pushViewController(newVC, animated: animated)
     }
-    
-    
     
 }
 

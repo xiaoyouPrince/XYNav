@@ -27,6 +27,9 @@ class DestViewController: UIViewController {
         btn.setTitle("去新页面", for: .normal)
         btn.frame = CGRect(x: 100, y: 200, width: 200, height: 40)
         btn.addTarget(self, action: #selector(gotoNewPage), for: .touchUpInside)
+        
+//        self.navigationController?.navigationBar.isOpaque = false
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +44,7 @@ class DestViewController: UIViewController {
     @objc
     func gotoNewPage() {
         let detail = SecordViewController()
+//        detail.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detail, animated: true)
     }
 }

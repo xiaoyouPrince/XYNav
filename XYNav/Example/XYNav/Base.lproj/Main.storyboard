@@ -45,6 +45,20 @@
             </objects>
             <point key="canvasLocation" x="1044" y="118.29085457271366"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="NvJ-m9-Kvs">
+            <objects>
+                <tabBarController storyboardIdentifier="tabVC" id="rlN-jU-fdb" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x46-fx-6i4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSg-XD-lJV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1994" y="876"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="VqC-hc-CuN">
             <objects>
