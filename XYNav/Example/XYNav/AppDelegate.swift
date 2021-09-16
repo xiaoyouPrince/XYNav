@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
         window?.rootViewController = XYNavigationController(rootViewController: vc)
         
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "xynav")
+//        window?.rootViewController = vc
+        
         return true
     }
 
