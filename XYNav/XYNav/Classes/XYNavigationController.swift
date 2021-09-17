@@ -19,6 +19,30 @@ func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController
     return contVC
 }
 
+var backImage: UIImage? = nil
+func getBackImage() -> UIImage {
+    
+    if backImage != nil {
+        return backImage!
+    }
+    
+    UIGraphicsBeginImageContextWithOptions(CGSize(width: 44, height: 44), false, 0.0)
+    let path = UIBezierPath()
+    path.move(to: CGPoint(x: 15, y: 10))
+    path.addLine(to: CGPoint(x: 2, y: 22))
+    path.addLine(to: CGPoint(x: 15, y: 34))
+    path.lineWidth = 2.5
+    path.lineCapStyle = .round
+    path.lineJoinStyle = .bevel
+    
+    UIColor.red.set()
+    path.stroke()
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    backImage = image
+    return image ?? UIImage()
+}
+
 open
 class XYNavigationController: UINavigationController {
     
@@ -68,6 +92,7 @@ class XYNavigationController: UINavigationController {
         let newVC = warpNewPushVC(viewController, self)
         if viewControllers.count > 0 {
             newVC.hidesBottomBarWhenPushed = true
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: getBackImage(), style: .plain, target: self, action: #selector(popViewController(animated:)))
         }
         super.pushViewController(newVC, animated: animated)
     }
