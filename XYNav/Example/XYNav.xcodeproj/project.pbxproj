@@ -17,6 +17,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B44F4A4726F1FD0D00AF21C2 /* DestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F4A4626F1FD0D00AF21C2 /* DestViewController.swift */; };
 		B44F4A5026F38F8E00AF21C2 /* SecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F4A4F26F38F8E00AF21C2 /* SecordViewController.swift */; };
+		B44F4A9626F4D73F00AF21C2 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F4A9526F4D73F00AF21C2 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		8542DE2483C44918803A698B /* Pods-XYNav_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYNav_Example.release.xcconfig"; path = "Target Support Files/Pods-XYNav_Example/Pods-XYNav_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B44F4A4626F1FD0D00AF21C2 /* DestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestViewController.swift; sourceTree = "<group>"; };
 		B44F4A4F26F38F8E00AF21C2 /* SecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecordViewController.swift; sourceTree = "<group>"; };
+		B44F4A9526F4D73F00AF21C2 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		D46A4EB9E4723EC44E4A6285 /* Pods-XYNav_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYNav_Tests.debug.xcconfig"; path = "Target Support Files/Pods-XYNav_Tests/Pods-XYNav_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 		607FACD21AFB9204008FA782 /* Example for XYNav */ = {
 			isa = PBXGroup;
 			children = (
+				B44F4A9526F4D73F00AF21C2 /* ThirdViewController.swift */,
 				B44F4A4F26F38F8E00AF21C2 /* SecordViewController.swift */,
 				B44F4A4626F1FD0D00AF21C2 /* DestViewController.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -339,6 +342,7 @@
 			files = (
 				B44F4A5026F38F8E00AF21C2 /* SecordViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				B44F4A9626F4D73F00AF21C2 /* ThirdViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				B44F4A4726F1FD0D00AF21C2 /* DestViewController.swift in Sources */,
 			);
