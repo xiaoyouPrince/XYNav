@@ -8,6 +8,8 @@
 import UIKit
 
 func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController) -> UIViewController {
+    if desVC is XYContentController { return desVC }
+    
     let contVC = XYContentController()
     let nav = XYContentNavController(rootViewController: desVC)
     nav.superNav = superNav

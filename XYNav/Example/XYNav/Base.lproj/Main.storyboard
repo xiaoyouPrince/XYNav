@@ -21,19 +21,37 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqA-4V-m3u">
-                                <rect key="frame" x="164" y="212" width="46" height="30"/>
+                                <rect key="frame" x="170" y="79" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="push"/>
                                 <connections>
                                     <action selector="push:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8V7-Mw-9Dj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mY-hm-DHj">
-                                <rect key="frame" x="157" y="353" width="61" height="30"/>
+                                <rect key="frame" x="157" y="127" width="61" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="pushNav"/>
                                 <connections>
                                     <action selector="push2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CMX-ER-KVZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wa9-7h-Br0">
+                                <rect key="frame" x="139" y="185" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="setControllers"/>
+                                <connections>
+                                    <action selector="push2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Fxu-Cf-0Rw"/>
+                                    <action selector="setControllers:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8p3-oa-4Bg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w69-7S-OWD">
+                                <rect key="frame" x="123" y="241" width="129" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="getviewControllers"/>
+                                <connections>
+                                    <action selector="getControllers:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cE8-iI-tm5"/>
+                                    <action selector="push2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jns-OI-lCq"/>
                                 </connections>
                             </button>
                         </subviews>

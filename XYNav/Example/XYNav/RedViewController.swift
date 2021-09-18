@@ -1,23 +1,24 @@
 //
-//  DestViewController.swift
-//  XYNav
+//  ThirdViewController.swift
+//  XYNav_Example
 //
-//  Created by xy on 2021/9/14.
+//  Created by 渠晓友 on 2021/9/17.
+//  Copyright © 2021 CocoaPods. All rights reserved.
 //
 
 import UIKit
 
-class DestViewController: UIViewController {
+class RedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .green
+        self.view.backgroundColor = .red
+        self.title = "red"
         
-        self.title = "你好"
         if #available(iOS 14.0, *) {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(back))
+            //self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(back))
         } else {
             // Fallback on earlier versions
         }
@@ -43,8 +44,9 @@ class DestViewController: UIViewController {
     
     @objc
     func gotoNewPage() {
-        let detail = SecordViewController()
+        let detail = RedViewController()
 //        detail.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detail, animated: true)
     }
+
 }

@@ -1,24 +1,23 @@
 //
-//  ThirdViewController.swift
-//  XYNav_Example
+//  DestViewController.swift
+//  XYNav
 //
-//  Created by 渠晓友 on 2021/9/17.
-//  Copyright © 2021 CocoaPods. All rights reserved.
+//  Created by xy on 2021/9/14.
 //
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class GreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .yellow
+        self.view.backgroundColor = .green
+        self.title = "green"
         
-        self.title = "你好"
         if #available(iOS 14.0, *) {
-            //self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(back))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(back))
         } else {
             // Fallback on earlier versions
         }
@@ -34,7 +33,7 @@ class ThirdViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.navigationController?.navigationBar.barTintColor = .red
+        self.navigationController?.navigationBar.barTintColor = .green
     }
     
     @objc
@@ -44,9 +43,8 @@ class ThirdViewController: UIViewController {
     
     @objc
     func gotoNewPage() {
-        let detail = SecordViewController()
+        let detail = YellowViewController()
 //        detail.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detail, animated: true)
     }
-
 }
