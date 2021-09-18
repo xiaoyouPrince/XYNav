@@ -30,4 +30,12 @@ class XYContentNavController: UINavigationController {
         
         return nil
     }
+    
+    override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
+        if self.superNav is XYNavigationController {
+            self.superNav?.setViewControllers(viewControllers, animated: animated)
+        }else{
+            super.setViewControllers(viewControllers, animated: animated)
+        }
+    }
 }

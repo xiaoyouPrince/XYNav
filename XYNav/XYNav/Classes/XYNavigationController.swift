@@ -71,6 +71,7 @@ class XYNavigationController: UINavigationController {
         navigationBar.isHidden = true
     }
     
+    // MARK: - 初始化
     public override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
         let newVC = warpNewPushVC(rootViewController, self)
@@ -88,6 +89,7 @@ class XYNavigationController: UINavigationController {
         self.setViewControllers([newVC], animated: false)
     }
     
+    // MARK: - push & pop
     open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         let newVC = warpNewPushVC(viewController, self)
         if viewControllers.count > 0 {
@@ -97,6 +99,15 @@ class XYNavigationController: UINavigationController {
         super.pushViewController(newVC, animated: animated)
     }
     
+    // MARK: - setViewControllers
+    open override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
+        var newVCs: [UIViewController] = []
+        for vc in viewControllers {
+            let newVC = warpNewPushVC(vc, self)
+            newVCs.append(newVC)
+        }
+        super.setViewControllers(newVCs, animated: animated)
+    }
 }
 
 
