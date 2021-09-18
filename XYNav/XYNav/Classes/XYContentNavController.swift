@@ -38,4 +38,17 @@ class XYContentNavController: UINavigationController {
             super.setViewControllers(viewControllers, animated: animated)
         }
     }
+    
+    override var viewControllers: [UIViewController]{
+        set{
+            setViewControllers(newValue, animated: false)
+        }
+        get{
+            if self.superNav is XYNavigationController {
+                return self.superNav!.viewControllers
+            }else{
+                return super.viewControllers
+            }
+        }
+    }
 }

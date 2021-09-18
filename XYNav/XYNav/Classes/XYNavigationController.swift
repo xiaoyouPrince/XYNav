@@ -8,15 +8,22 @@
 import UIKit
 
 func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController) -> UIViewController {
-    let contVC = UIViewController()
-    contVC.hidesBottomBarWhenPushed = desVC.hidesBottomBarWhenPushed
-    
+    let contVC = XYContentController()
     let nav = XYContentNavController(rootViewController: desVC)
     nav.superNav = superNav
     contVC.addChild(nav)
     contVC.view.addSubview(nav.view)
-    
+    contVC.contentVc = desVC
+    contVC.contentNav = nav
+    contVC.hidesBottomBarWhenPushed = desVC.hidesBottomBarWhenPushed
     return contVC
+}
+
+func unWarpNewPushVC(_ desVC: UIViewController) -> UIViewController {
+    if desVC is XYContentController, let contentVC = desVC as? XYContentController {
+        return contentVC.contentVc ?? desVC
+    }
+    return desVC
 }
 
 var backImage: UIImage? = nil
@@ -107,6 +114,22 @@ class XYNavigationController: UINavigationController {
             newVCs.append(newVC)
         }
         super.setViewControllers(newVCs, animated: animated)
+    }
+    
+    open override var viewControllers: [UIViewController]{
+        
+        set{
+            super.viewControllers = newValue
+        }
+        
+        get{
+            var resultVCs: [UIViewController] = []
+            let warpedVCs = super.viewControllers
+            for warpedVC in warpedVCs {
+                resultVCs.append(unWarpNewPushVC(warpedVC))
+            }
+            return resultVCs
+        }
     }
 }
 

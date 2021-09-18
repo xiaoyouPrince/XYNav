@@ -15,6 +15,7 @@
 		6E92B2796107E2F45FCAD6583D89AFDD /* Pods-XYNav_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8141251457705A29B53E183132060AE4 /* Pods-XYNav_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		771455BF11881116087603542DAD3D02 /* Pods-XYNav_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F56934F22CE925DEFB9B98FDCE8E52CB /* Pods-XYNav_Tests-dummy.m */; };
 		AB4590115C5E080A20756E4890EAAA66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		B4EE59E426F602C100BCA566 /* XYContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE59E326F602C100BCA566 /* XYContentController.swift */; };
 		C1D55904716589FA14A74AD7096CCD58 /* XYContentNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A82382DF4AB348576152B565C243FC /* XYContentNavController.swift */; };
 		CB316E406700E5052245256088A2986E /* Pods-XYNav_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 467C1963B086E7B4081420E2C4A6602B /* Pods-XYNav_Example-dummy.m */; };
 		E23B3B576174731E86BD3FF20B1D1F58 /* XYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286486924910A3F113DFB70D0B57714A /* XYNavigationController.swift */; };
@@ -47,17 +48,18 @@
 		3B066B55165A6B7D93319A005AC788B9 /* Pods-XYNav_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XYNav_Example-frameworks.sh"; sourceTree = "<group>"; };
 		467C1963B086E7B4081420E2C4A6602B /* Pods-XYNav_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYNav_Example-dummy.m"; sourceTree = "<group>"; };
 		4859B83F66FCDCBEF062991675D9B24D /* Pods-XYNav_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYNav_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		53FDD20269EEC9E6CCF480C0676B38B7 /* Pods_XYNav_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XYNav_Tests.framework; path = "Pods-XYNav_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		53FDD20269EEC9E6CCF480C0676B38B7 /* Pods_XYNav_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYNav_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A82382DF4AB348576152B565C243FC /* XYContentNavController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XYContentNavController.swift; path = XYNav/Classes/XYContentNavController.swift; sourceTree = "<group>"; };
-		5A9A122FB0FB724A64FA7A19969C4DF6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		5A9A122FB0FB724A64FA7A19969C4DF6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		63E3945A1F26B4BCD72AD947F46DA798 /* XYNav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XYNav.debug.xcconfig; sourceTree = "<group>"; };
 		67FF4A7805CD6B81306C4576681A84BF /* Pods-XYNav_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYNav_Example-umbrella.h"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		8141251457705A29B53E183132060AE4 /* Pods-XYNav_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYNav_Tests-umbrella.h"; sourceTree = "<group>"; };
-		8E0080113317C970107E68F0A492984E /* XYNav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYNav.framework; path = XYNav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A4CD2DF6FC743480D8624B836374E2C /* XYNav.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = XYNav.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8E0080113317C970107E68F0A492984E /* XYNav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYNav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A4CD2DF6FC743480D8624B836374E2C /* XYNav.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = XYNav.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EBE27584330C5A54DEBAA056C29EEF6 /* XYNav-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYNav-dummy.m"; sourceTree = "<group>"; };
+		B4EE59E326F602C100BCA566 /* XYContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XYContentController.swift; path = XYNav/Classes/XYContentController.swift; sourceTree = "<group>"; };
 		BFFED91C8E09CC2D90ED963A6397C346 /* Pods-XYNav_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYNav_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		C065A8DB249D8EAA60BD50D8EB52D655 /* Pods-XYNav_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYNav_Example-Info.plist"; sourceTree = "<group>"; };
 		C2E6859657070FDB1CC05E8C7C53B73D /* XYNav-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYNav-prefix.pch"; sourceTree = "<group>"; };
@@ -66,9 +68,9 @@
 		E0AAD6921B92539ACACA85DDB2381B0C /* Pods-XYNav_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYNav_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E826B3653804063514601CB14FB9F6BD /* Pods-XYNav_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYNav_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F043FCD080314345AD03834786BC29A2 /* XYNav.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XYNav.modulemap; sourceTree = "<group>"; };
-		F2BAFF7B22A12FC9C83E97EB38AF4F7D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		F2BAFF7B22A12FC9C83E97EB38AF4F7D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F2F394204B68318B0EBDB9961B6FDDAA /* Pods-XYNav_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYNav_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		F3515BE2006EEF7E8EBE3C5303933399 /* Pods_XYNav_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XYNav_Example.framework; path = "Pods-XYNav_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3515BE2006EEF7E8EBE3C5303933399 /* Pods_XYNav_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYNav_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51DEF514ADB1DEC3B17834AC588A504 /* Pods-XYNav_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYNav_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		F56934F22CE925DEFB9B98FDCE8E52CB /* Pods-XYNav_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYNav_Tests-dummy.m"; sourceTree = "<group>"; };
 		F8B4011B68BED7400F9B195213CF6C0C /* Pods-XYNav_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYNav_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				56A82382DF4AB348576152B565C243FC /* XYContentNavController.swift */,
 				286486924910A3F113DFB70D0B57714A /* XYNavigationController.swift */,
+				B4EE59E326F602C100BCA566 /* XYContentController.swift */,
 				F8E936D4AA64C3FAC9C0084F8FEB9203 /* Pod */,
 				F4996156F7DD35D9A2867970DB6C252F /* Support Files */,
 			);
@@ -378,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4EE59E426F602C100BCA566 /* XYContentController.swift in Sources */,
 				C1D55904716589FA14A74AD7096CCD58 /* XYContentNavController.swift in Sources */,
 				4BB4AAE7E4DEF6231301AC9AF5BFE228 /* XYNav-dummy.m in Sources */,
 				E23B3B576174731E86BD3FF20B1D1F58 /* XYNavigationController.swift in Sources */,
@@ -690,8 +694,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
