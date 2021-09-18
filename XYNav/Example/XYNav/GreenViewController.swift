@@ -18,9 +18,12 @@ class GreenViewController: UIViewController {
         
         if #available(iOS 14.0, *) {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(back))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "nav 栈", style: .plain, target: self, action: #selector(navStack))
         } else {
             // Fallback on earlier versions
         }
+        
+        
         
         let btn = UIButton()
         self.view.addSubview(btn)
@@ -39,6 +42,10 @@ class GreenViewController: UIViewController {
     @objc
     func back() {
         self.navigationController?.popViewController(animated: true)
+    }
+    @objc
+    func navStack() {
+        print(self.navigationController?.viewControllers)
     }
     
     @objc

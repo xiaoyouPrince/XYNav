@@ -41,7 +41,12 @@ class XYContentNavController: UINavigationController {
     
     override var viewControllers: [UIViewController]{
         set{
-            setViewControllers(newValue, animated: false)
+//            setViewControllers(newValue, animated: false)
+            if self.superNav is XYNavigationController {
+                self.superNav?.viewControllers = newValue
+            }else{
+                super.viewControllers = newValue
+            }
         }
         get{
             if self.superNav is XYNavigationController {

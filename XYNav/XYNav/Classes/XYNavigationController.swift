@@ -111,24 +111,33 @@ class XYNavigationController: UINavigationController {
     // MARK: - setViewControllers
     open override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
         
-        if viewControllers.count == 0 { return }
-        if viewControllers.count == 1 {
-            super.setViewControllers([], animated: false)
-            self.pushViewController(viewControllers.first!, animated: animated)
-        }else{
-            super.setViewControllers([], animated: false)
-            let prefixVCs = viewControllers.prefix(viewControllers.count - 1)
-            for prefixVC in prefixVCs {
-                self.pushViewController(prefixVC, animated: false)
-            }
-            self.pushViewController(viewControllers.last!, animated: animated)
+//        if viewControllers.count == 0 { return }
+//        if viewControllers.count == 1 {
+//            super.setViewControllers([], animated: false)
+//            self.pushViewController(viewControllers.first!, animated: animated)
+//        }else{
+//            super.setViewControllers([], animated: false)
+//            let prefixVCs = viewControllers.prefix(viewControllers.count - 1)
+//            for prefixVC in prefixVCs {
+//                self.pushViewController(prefixVC, animated: false)
+//            }
+//            self.pushViewController(viewControllers.last!, animated: animated)
+//        }
+        var warpedVCs: [UIViewController] = []
+        for vc in viewControllers {
+            warpedVCs.append(warpNewPushVC(vc, self))
         }
+        super.setViewControllers(warpedVCs, animated: animated)
     }
     
     open override var viewControllers: [UIViewController]{
         
         set{
-            super.viewControllers = newValue
+            var warpedVCs: [UIViewController] = []
+            for vc in newValue {
+                warpedVCs.append(warpNewPushVC(vc, self))
+            }
+            super.viewControllers = warpedVCs
         }
         
         get{
