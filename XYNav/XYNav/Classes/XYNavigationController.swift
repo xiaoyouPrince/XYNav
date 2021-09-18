@@ -110,12 +110,19 @@ class XYNavigationController: UINavigationController {
     
     // MARK: - setViewControllers
     open override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
-        var newVCs: [UIViewController] = []
-        for vc in viewControllers {
-            let newVC = warpNewPushVC(vc, self)
-            newVCs.append(newVC)
+        
+        if viewControllers.count == 0 { return }
+        if viewControllers.count == 1 {
+            super.setViewControllers([], animated: false)
+            self.pushViewController(viewControllers.first!, animated: animated)
+        }else{
+            super.setViewControllers([], animated: false)
+            let prefixVCs = viewControllers.prefix(viewControllers.count - 1)
+            for prefixVC in prefixVCs {
+                self.pushViewController(prefixVC, animated: false)
+            }
+            self.pushViewController(viewControllers.last!, animated: animated)
         }
-        super.setViewControllers(newVCs, animated: animated)
     }
     
     open override var viewControllers: [UIViewController]{

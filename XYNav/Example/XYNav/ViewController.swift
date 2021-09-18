@@ -36,9 +36,8 @@ class ViewController: UIViewController {
         let contVC1 = YellowViewController()
         let contVC2 = GreenViewController()
         let contVC3 = RedViewController()
-        self.navigationController?.viewControllers = [self,contVC1,contVC2,contVC3]
-        
-        // self.navigationController?.setViewControllers([self,contVC,contVC1,contVC2,contVC3], animated: true)
+//        self.navigationController?.viewControllers = [self,contVC1,contVC2,contVC3]
+         self.navigationController?.setViewControllers([self,contVC1,contVC2,contVC3], animated: true)
     }
     
     

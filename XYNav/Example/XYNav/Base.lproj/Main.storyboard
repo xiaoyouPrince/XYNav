@@ -41,7 +41,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="setControllers"/>
                                 <connections>
-                                    <action selector="push2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Fxu-Cf-0Rw"/>
                                     <action selector="setControllers:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8p3-oa-4Bg"/>
                                 </connections>
                             </button>
@@ -51,7 +50,6 @@
                                 <state key="normal" title="getviewControllers"/>
                                 <connections>
                                     <action selector="getControllers:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cE8-iI-tm5"/>
-                                    <action selector="push2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jns-OI-lCq"/>
                                 </connections>
                             </button>
                         </subviews>
