@@ -73,4 +73,25 @@ class XYContentNavController: UINavigationController {
             }
         }
     }
+    
+//    override var topViewController: UIViewController?
+//    {
+//        get{
+//            if self.superNav is XYNavigationController {
+//                return superNav?.topViewController
+//            }else{
+//                return super.topViewController
+//            }
+//        }
+//    }
+//    
+//    override var visibleViewController: UIViewController?{
+//        get {
+//            if self.superNav is XYNavigationController {
+//                return superNav?.visibleViewController
+//            }else{
+//                return super.visibleViewController
+//            }
+//        }
+//    }
 }

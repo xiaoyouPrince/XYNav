@@ -171,7 +171,7 @@ class XYNavigationController: UINavigationController {
     }
     
     
-    // MARK: - setViewControllers
+    // MARK: - setViewControllers / getViewControllers
     open override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
         
 //        if viewControllers.count == 0 { return }
@@ -212,6 +212,22 @@ class XYNavigationController: UINavigationController {
             return resultVCs
         }
     }
+    
+    // MARK: - setViewControllers / getViewControllers
+//    open override var topViewController: UIViewController?{
+//        get{ self.viewControllers.last }
+//    }
+//
+//    open override var visibleViewController: UIViewController?{
+//        get{
+//            if super.visibleViewController == self.topViewController {
+//                return self.topViewController
+//            }else{
+//                return super.visibleViewController
+//            }
+//        }
+//    }
+
 }
 
 extension XYNavigationController {

@@ -42,6 +42,12 @@ class RedViewController: BaseViewController {
         btn3.frame = CGRect(x: 100, y: 400, width: 200, height: 40)
         btn3.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
         
+        let btn4 = UIButton()
+        self.view.addSubview(btn4)
+        btn4.setTitle("presentVC 并打印当前的topVC,visibleVC", for: .normal)
+        btn4.frame = CGRect(x: 30, y: 500, width: 360, height: 80)
+        btn4.addTarget(self, action: #selector(presentAndPrint), for: .touchUpInside)
+        
 //        self.navigationController?.navigationBar.isOpaque = false
         self.navigationController?.navigationBar.isTranslucent = false
     }
@@ -81,6 +87,15 @@ class RedViewController: BaseViewController {
         if currentVCs?.count ?? 0 > 0 {
             let popedVCs = self.navigationController?.popToRootViewController(animated: true)
             print("popedVCs","=",popedVCs)
+        }
+    }
+    
+    @objc
+    func presentAndPrint() {
+        self.present(GreenViewController(), animated: true) {
+            print("present 新 VC 完成")
+            print("当期topVC = ", self.navigationController?.topViewController)
+            print("当期visiableVC = ", self.navigationController?.visibleViewController)
         }
     }
 
