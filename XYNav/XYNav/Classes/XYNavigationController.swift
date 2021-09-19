@@ -27,7 +27,7 @@ func warpVC(_ desVC: UIViewController, _ superNav: XYNavigationController, isRoo
         return newVC
     }else{
         newVC.hidesBottomBarWhenPushed = true
-        desVC.navigationItem.leftBarButtonItem = UIBarButtonItem(image: getBackImage(), style: .plain, target: superNav, action: #selector(XYNavigationController.popViewController(animated:)))
+        desVC.navigationItem.leftBarButtonItem = UIBarButtonItem(image: getBackImage(), style: .plain, target: superNav, action: #selector(XYNavigationController.popByDefaultAction))
         return newVC
     }
 }
@@ -114,7 +114,7 @@ class XYNavigationController: UINavigationController {
         let newVC = warpNewPushVC(viewController, self)
         if viewControllers.count > 0 {
             newVC.hidesBottomBarWhenPushed = true
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: getBackImage(), style: .plain, target: self, action: #selector(popViewController(animated:)))
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: getBackImage(), style: .plain, target: self, action: #selector(popByDefaultAction))
         }
         super.pushViewController(newVC, animated: animated)
     }
@@ -126,6 +126,8 @@ class XYNavigationController: UINavigationController {
         }
         return nil
     }
+    
+    
     
     // MARK: - setViewControllers
     open override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
@@ -167,6 +169,15 @@ class XYNavigationController: UINavigationController {
             }
             return resultVCs
         }
+    }
+}
+
+extension XYNavigationController {
+    
+    /// XYNav 自定义返回 pop 事件
+    /// - Returns: 返回最顶部的 viewController
+    @objc func popByDefaultAction() -> UIViewController? {
+        return self.popViewController(animated: true)
     }
 }
 
