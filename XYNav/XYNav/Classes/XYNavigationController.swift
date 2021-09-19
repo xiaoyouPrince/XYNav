@@ -133,6 +133,40 @@ class XYNavigationController: UINavigationController {
         return nil
     }
     
+    open override func popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
+        
+        if self.viewControllers.contains(viewController) == true { // 在自己vc栈中执行
+            let oldSelfViewControllers = self.viewControllers
+            
+            var newViewControllers: [UIViewController] = []
+            for warpedVC in super.viewControllers {
+                if warpedVC is XYContentController,
+                   let contentVC = warpedVC as? XYContentController {
+                    newViewControllers.append(warpedVC)
+                    if contentVC.contentVc == viewController {
+                        break
+                    }
+                }
+            }
+            self.setViewControllers(newViewControllers, animated: animated)
+            
+            var popedControllers: [UIViewController] = []
+            for index in 0..<oldSelfViewControllers.count {
+                let popedVC = oldSelfViewControllers[oldSelfViewControllers.count - 1 - index]
+                if popedVC == viewController {
+                    break
+                }
+                popedControllers.append(popedVC)
+            }
+            return popedControllers.reversed()
+        }
+        return nil
+    }
+    
+    
+//    open override func popToRootViewController(animated: Bool) -> [UIViewController]? {
+//        
+//    }
     
     
     // MARK: - setViewControllers

@@ -31,6 +31,23 @@ class XYContentNavController: UINavigationController {
         return nil
     }
     
+    open override func popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
+        if self.superNav is XYNavigationController {
+            return self.superNav?.popToViewController(viewController,animated: animated)
+        }else{
+            return super.popToViewController(viewController,animated: animated)
+        }
+    }
+    
+    
+    open override func popToRootViewController(animated: Bool) -> [UIViewController]? {
+        if self.superNav is XYNavigationController {
+            return self.superNav?.popToRootViewController(animated: animated)
+        }else{
+            return super.popToRootViewController(animated: animated)
+        }
+    }
+    
     override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
         if self.superNav is XYNavigationController {
             self.superNav?.setViewControllers(viewControllers, animated: animated)

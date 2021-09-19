@@ -30,6 +30,12 @@ class RedViewController: BaseViewController {
         btn.frame = CGRect(x: 100, y: 200, width: 200, height: 40)
         btn.addTarget(self, action: #selector(gotoNewPage), for: .touchUpInside)
         
+        let btn2 = UIButton()
+        self.view.addSubview(btn2)
+        btn2.setTitle("pop 到第二个VC", for: .normal)
+        btn2.frame = CGRect(x: 100, y: 300, width: 200, height: 40)
+        btn2.addTarget(self, action: #selector(popTo), for: .touchUpInside)
+        
 //        self.navigationController?.navigationBar.isOpaque = false
         self.navigationController?.navigationBar.isTranslucent = false
     }
@@ -52,6 +58,15 @@ class RedViewController: BaseViewController {
         let detail = RedViewController()
 //        detail.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detail, animated: true)
+    }
+    
+    @objc
+    func popTo() {
+        let currentVCs = self.navigationController?.viewControllers
+        if currentVCs?.count ?? 0 > 1 {
+            let popedVCs = self.navigationController?.popToViewController(currentVCs![1], animated: true)
+            print("popedVCs","=",popedVCs)
+        }
     }
 
 }
