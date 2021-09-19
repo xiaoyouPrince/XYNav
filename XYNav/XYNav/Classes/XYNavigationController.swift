@@ -95,7 +95,7 @@ class XYNavigationController: UINavigationController {
     public override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
         let newVC = warpNewPushVC(rootViewController, self)
-        self.setViewControllers([newVC], animated: true)
+        self.setViewControllers([newVC], animated: false)
     }
     
     public required init?(coder aDecoder: NSCoder) {

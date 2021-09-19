@@ -15,7 +15,7 @@ class XYContentNavController: UINavigationController {
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         
         if self.superNav is XYNavigationController {
-            self.superNav?.pushViewController(viewController, animated: true)
+            self.superNav?.pushViewController(viewController, animated: animated)
         }else{
             super.pushViewController(viewController, animated: animated)
         }
@@ -23,7 +23,7 @@ class XYContentNavController: UINavigationController {
     
     override func popViewController(animated: Bool) -> UIViewController? {
         if self.superNav is XYNavigationController {
-            return self.superNav?.popViewController(animated: true)
+            return self.superNav?.popViewController(animated: animated)
         }else{
             super.popViewController(animated: animated)
         }
