@@ -15,6 +15,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		B4090A1426F770DD002B795A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4090A1326F770DD002B795A /* BaseViewController.swift */; };
 		B44F4A4726F1FD0D00AF21C2 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F4A4626F1FD0D00AF21C2 /* GreenViewController.swift */; };
 		B44F4A5026F38F8E00AF21C2 /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F4A4F26F38F8E00AF21C2 /* YellowViewController.swift */; };
 		B44F4A9626F4D73F00AF21C2 /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F4A9526F4D73F00AF21C2 /* RedViewController.swift */; };
@@ -49,6 +50,7 @@
 		73D2F68D9116F2DD57351D32 /* XYNav.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XYNav.podspec; path = ../XYNav.podspec; sourceTree = "<group>"; };
 		84D822AC95AA87D0AD1C349A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		8542DE2483C44918803A698B /* Pods-XYNav_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYNav_Example.release.xcconfig"; path = "Target Support Files/Pods-XYNav_Example/Pods-XYNav_Example.release.xcconfig"; sourceTree = "<group>"; };
+		B4090A1326F770DD002B795A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B44F4A4626F1FD0D00AF21C2 /* GreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		B44F4A4F26F38F8E00AF21C2 /* YellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
 		B44F4A9526F4D73F00AF21C2 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		607FACD21AFB9204008FA782 /* Example for XYNav */ = {
 			isa = PBXGroup;
 			children = (
+				B4090A1326F770DD002B795A /* BaseViewController.swift */,
 				B44F4A9526F4D73F00AF21C2 /* RedViewController.swift */,
 				B44F4A4F26F38F8E00AF21C2 /* YellowViewController.swift */,
 				B44F4A4626F1FD0D00AF21C2 /* GreenViewController.swift */,
@@ -345,6 +348,7 @@
 				B44F4A9626F4D73F00AF21C2 /* RedViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				B44F4A4726F1FD0D00AF21C2 /* GreenViewController.swift in Sources */,
+				B4090A1426F770DD002B795A /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

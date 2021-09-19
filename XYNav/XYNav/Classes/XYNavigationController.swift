@@ -32,9 +32,15 @@ func warpVC(_ desVC: UIViewController, _ superNav: XYNavigationController, isRoo
     }
 }
 
-func unWarpNewPushVC(_ desVC: UIViewController) -> UIViewController {
+func unWarpNewPushVC(_ desVC: UIViewController, needResign: Bool) -> UIViewController {
     if desVC is XYContentController, let contentVC = desVC as? XYContentController {
-        return contentVC.contentVc ?? desVC
+        let resultVC = contentVC.contentVc
+        if needResign {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                contentVC.removeFromParent()
+            }
+        }
+        return resultVC ?? desVC
     }
     return desVC
 }
@@ -122,7 +128,7 @@ class XYNavigationController: UINavigationController {
     open override func popViewController(animated: Bool) -> UIViewController? {
         let popVC = super.popViewController(animated: animated)
         if let resultVC = popVC as? XYContentController {
-            return unWarpNewPushVC(resultVC)
+            return unWarpNewPushVC(resultVC, needResign: true)
         }
         return nil
     }
@@ -165,7 +171,7 @@ class XYNavigationController: UINavigationController {
             var resultVCs: [UIViewController] = []
             let warpedVCs = super.viewControllers
             for warpedVC in warpedVCs {
-                resultVCs.append(unWarpNewPushVC(warpedVC))
+                resultVCs.append(unWarpNewPushVC(warpedVC, needResign: false))
             }
             return resultVCs
         }

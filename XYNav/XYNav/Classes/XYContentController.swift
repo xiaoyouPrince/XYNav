@@ -21,4 +21,8 @@ class XYContentController: UIViewController {
             """
         }
     }
+    
+    deinit {
+        print("XYContentController","- deinit -")
+    }
 }

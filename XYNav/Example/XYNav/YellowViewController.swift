@@ -8,7 +8,9 @@
 
 import UIKit
 
-class YellowViewController: UIViewController {
+class YellowViewController: BaseViewController {
+    
+    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +25,31 @@ class YellowViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        
+        if #available(iOS 10.0, *) {
+            timer = Timer(timeInterval: 1, repeats: true) { (timer) in
+                print("yello - 我还活着呢")
+                print("self.presentingViewController = \(self.parent?.parent)")
+                print("self.presentingViewController2 = \(self.presentingViewController?.presentingViewController)")
+                print("self.presentingViewController3 = \(self.presentingViewController?.presentingViewController?.presentingViewController)")
+                print("self.presentingViewController4 = \(self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController)")
+                print("------------------")
+            }
+            RunLoop.current.add(timer!, forMode: .common)
+            timer?.fire()
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.barTintColor = .yellow
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print(self, "viewWillDisappear")
+        timer?.invalidate()
+        print(self, "viewWillDisappear -- 完成")
     }
     
     @objc
