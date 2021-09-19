@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        // navigationBar 需要在此函数中才能被加载到，
+        // 对 navigationBar 的设置需要放到此函数才有效
         self.navigationController?.navigationBar.isTranslucent = false
     }
 
