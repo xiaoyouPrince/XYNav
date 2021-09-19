@@ -36,6 +36,12 @@ class RedViewController: BaseViewController {
         btn2.frame = CGRect(x: 100, y: 300, width: 200, height: 40)
         btn2.addTarget(self, action: #selector(popTo), for: .touchUpInside)
         
+        let btn3 = UIButton()
+        self.view.addSubview(btn3)
+        btn3.setTitle("pop 到 rootVC", for: .normal)
+        btn3.frame = CGRect(x: 100, y: 400, width: 200, height: 40)
+        btn3.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
+        
 //        self.navigationController?.navigationBar.isOpaque = false
         self.navigationController?.navigationBar.isTranslucent = false
     }
@@ -65,6 +71,15 @@ class RedViewController: BaseViewController {
         let currentVCs = self.navigationController?.viewControllers
         if currentVCs?.count ?? 0 > 1 {
             let popedVCs = self.navigationController?.popToViewController(currentVCs![1], animated: true)
+            print("popedVCs","=",popedVCs)
+        }
+    }
+    
+    @objc
+    func popToRoot() {
+        let currentVCs = self.navigationController?.viewControllers
+        if currentVCs?.count ?? 0 > 0 {
+            let popedVCs = self.navigationController?.popToRootViewController(animated: true)
             print("popedVCs","=",popedVCs)
         }
     }

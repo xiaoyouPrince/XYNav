@@ -163,10 +163,12 @@ class XYNavigationController: UINavigationController {
         return nil
     }
     
-    
-//    open override func popToRootViewController(animated: Bool) -> [UIViewController]? {
-//        
-//    }
+    open override func popToRootViewController(animated: Bool) -> [UIViewController]? {
+        if self.viewControllers.isEmpty {
+            return nil
+        }
+        return popToViewController(self.viewControllers.first!, animated: animated)
+    }
     
     
     // MARK: - setViewControllers
