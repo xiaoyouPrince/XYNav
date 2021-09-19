@@ -21,6 +21,17 @@ func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController
     return contVC
 }
 
+func warpVC(_ desVC: UIViewController, _ superNav: XYNavigationController, isRootVC: Bool) -> UIViewController {
+    let newVC = warpNewPushVC(desVC, superNav)
+    if isRootVC{
+        return newVC
+    }else{
+        newVC.hidesBottomBarWhenPushed = true
+        desVC.navigationItem.leftBarButtonItem = UIBarButtonItem(image: getBackImage(), style: .plain, target: superNav, action: #selector(XYNavigationController.popViewController(animated:)))
+        return newVC
+    }
+}
+
 func unWarpNewPushVC(_ desVC: UIViewController) -> UIViewController {
     if desVC is XYContentController, let contentVC = desVC as? XYContentController {
         return contentVC.contentVc ?? desVC
@@ -125,7 +136,7 @@ class XYNavigationController: UINavigationController {
 //        }
         var warpedVCs: [UIViewController] = []
         for vc in viewControllers {
-            warpedVCs.append(warpNewPushVC(vc, self))
+            warpedVCs.append(warpVC(vc, self, isRootVC: viewControllers.first == vc))
         }
         super.setViewControllers(warpedVCs, animated: animated)
     }
@@ -135,7 +146,7 @@ class XYNavigationController: UINavigationController {
         set{
             var warpedVCs: [UIViewController] = []
             for vc in newValue {
-                warpedVCs.append(warpNewPushVC(vc, self))
+                warpedVCs.append(warpVC(vc, self, isRootVC: viewControllers.first == vc))
             }
             super.viewControllers = warpedVCs
         }

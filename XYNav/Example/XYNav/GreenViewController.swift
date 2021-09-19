@@ -17,7 +17,7 @@ class GreenViewController: UIViewController {
         self.title = "green"
         
         if #available(iOS 14.0, *) {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(back))
+//            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(back))
             self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "nav 栈", style: .plain, target: self, action: #selector(navStack))
         } else {
             // Fallback on earlier versions
