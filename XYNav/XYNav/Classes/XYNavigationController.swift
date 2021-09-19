@@ -119,6 +119,14 @@ class XYNavigationController: UINavigationController {
         super.pushViewController(newVC, animated: animated)
     }
     
+    open override func popViewController(animated: Bool) -> UIViewController? {
+        let popVC = super.popViewController(animated: animated)
+        if let resultVC = popVC as? XYContentController {
+            return unWarpNewPushVC(resultVC)
+        }
+        return nil
+    }
+    
     // MARK: - setViewControllers
     open override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
         

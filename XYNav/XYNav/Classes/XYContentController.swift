@@ -10,4 +10,15 @@ import UIKit
 class XYContentController: UIViewController {
     weak var contentNav: XYContentNavController?
     weak var contentVc: UIViewController?
+    
+    override var description: String{
+        get{
+            """
+                ---<XYContentController>---
+                    contentNav"\(String(describing: contentNav))"
+                    contentVc"\(String(describing: contentVc))"
+                ---<XYContentController>---
+            """
+        }
+    }
 }
