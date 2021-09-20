@@ -18,7 +18,7 @@ func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController
     contVC.contentVc = desVC
     contVC.contentNav = nav
     contVC.hidesBottomBarWhenPushed = desVC.hidesBottomBarWhenPushed
-    superNav.interactivePopGestureRecognizer?.isEnabled = desVC.xy_isPopGestureEnable
+    superNav.panGesture?.isEnabled = desVC.xy_isPopGestureEnable
     return contVC
 }
 
@@ -74,7 +74,7 @@ open
 class XYNavigationController: UINavigationController {
     
     // MARK: - open vars
-    
+    var panGesture: UIPanGestureRecognizer?
     
     
 
@@ -86,8 +86,12 @@ class XYNavigationController: UINavigationController {
 
         // Do any additional setup after loading the view.
         
+        //<_UIParallaxTransitionPanGestureRecognizer: 0x7faec681fe50; state = Possible; delaysTouchesBegan = YES; view = <UILayoutContainerView 0x7faec681d300>; target= <(action=handleNavigationTransition:, target=<_UINavigationInteractiveTransition 0x7faec681fd10>)>>
+        super.interactivePopGestureRecognizer?.isEnabled = false
+        panGesture = UIPanGestureRecognizer(target: super.interactivePopGestureRecognizer?.delegate, action: Selector("handleNavigationTransition:"))
+        panGesture!.delegate = self
+        view.addGestureRecognizer(panGesture!)
         
-
 
         
         // 直接调用 nav 的方法，会直接隐藏 navigationBar 且同时干掉侧滑返回功能
@@ -265,11 +269,31 @@ extension XYNavigationController: UINavigationControllerDelegate{
 //    }
 }
 
+extension XYNavigationController : UIGestureRecognizerDelegate{
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        if gestureRecognizer == self.panGesture {
+            if self.viewControllers.count == 1 {
+                return false
+            }
+            
+            let point = gestureRecognizer.location(in: gestureRecognizer.view)
+            if point.x < (UIScreen.main.bounds.width * self.viewControllers.last!.xy_popGestureRatio) {
+                return true
+            }
+            return false
+        }
+        
+        return true
+    }
+}
+
 
 extension UIViewController {
     
     fileprivate struct AssociatedKeys {
         static var isPopGestureEnable: String = "isPopGestureEnable"
+        static var popGestureRatio: String = "popGestureRatio"
     }
     
     // MARK: - 是否启用侧滑返回功能
@@ -291,6 +315,19 @@ extension UIViewController {
                 return true
             }
             return isPopGestureEnable
+        }
+    }
+    
+    /// 支持侧滑返回的比例 0~1
+    @objc public var xy_popGestureRatio: CGFloat {
+        set{
+            objc_setAssociatedObject(self, &AssociatedKeys.popGestureRatio, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        get{
+            guard let popGestureRatio = objc_getAssociatedObject(self, &AssociatedKeys.popGestureRatio) as? CGFloat else {
+                return 0.1
+            }
+            return popGestureRatio
         }
     }
     
