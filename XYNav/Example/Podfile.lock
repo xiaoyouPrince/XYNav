@@ -1,16 +1,27 @@
 PODS:
-  - XYNav (0.1.0)
+  - Masonry (1.1.0)
+  - XYInfomationSection (1.3.0):
+    - Masonry
+  - XYNav (1.0)
 
 DEPENDENCIES:
+  - XYInfomationSection
   - XYNav (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+    - XYInfomationSection
 
 EXTERNAL SOURCES:
   XYNav:
     :path: "../"
 
 SPEC CHECKSUMS:
-  XYNav: 931da34571f6e03b36877d3751bdc7cab2fbc5f0
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  XYInfomationSection: ef71a8bf917348c49f83f9b3fc891c79bf2882a0
+  XYNav: f4a731c1e3e275de70ff260930e0530988659a72
 
-PODFILE CHECKSUM: 4f079e87832143c42e6c17b309b6ffcae084f4f8
+PODFILE CHECKSUM: ac4687da72afde0b0f6d8736ee27422f893b9184
 
 COCOAPODS: 1.10.1
