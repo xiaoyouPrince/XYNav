@@ -18,6 +18,7 @@ func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController
     contVC.contentVc = desVC
     contVC.contentNav = nav
     contVC.hidesBottomBarWhenPushed = desVC.hidesBottomBarWhenPushed
+    superNav.interactivePopGestureRecognizer?.isEnabled = desVC.xy_isPopGestureEnable
     return contVC
 }
 
@@ -267,6 +268,31 @@ extension XYNavigationController: UINavigationControllerDelegate{
 
 extension UIViewController {
     
+    fileprivate struct AssociatedKeys {
+        static var isPopGestureEnable: String = "isPopGestureEnable"
+    }
+    
+    // MARK: - 是否启用侧滑返回功能
+    /// 默认支持侧滑返回功能
+    @objc public var xy_isPopGestureEnable: Bool {
+        set{
+            objc_setAssociatedObject(self, &AssociatedKeys.isPopGestureEnable, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            
+            if self.navigationController != nil {
+                self.navigationController?.interactivePopGestureRecognizer?.isEnabled = newValue
+            }else{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                    self.navigationController?.interactivePopGestureRecognizer?.isEnabled = newValue
+                }
+            }
+        }
+        get{
+            guard let isPopGestureEnable = objc_getAssociatedObject(self, &AssociatedKeys.isPopGestureEnable) as? Bool else {
+                return true
+            }
+            return isPopGestureEnable
+        }
+    }
     
     
 //    func navigationController() -> UINavigationController? {

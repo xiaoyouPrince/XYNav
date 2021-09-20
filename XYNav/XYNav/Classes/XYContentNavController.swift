@@ -94,4 +94,14 @@ class XYContentNavController: UINavigationController {
 //            }
 //        }
 //    }
+    
+    override var interactivePopGestureRecognizer: UIGestureRecognizer?{
+        get {
+            if self.superNav is XYNavigationController {
+                return self.superNav?.interactivePopGestureRecognizer
+            }else{
+                return super.interactivePopGestureRecognizer
+            }
+        }
+    }
 }
