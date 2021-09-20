@@ -24,5 +24,6 @@ class XYContentController: UIViewController {
     
     deinit {
         print("XYContentController","- deinit -")
+        self.contentNav?.superNav?.interactivePopGestureRecognizer?.isEnabled = self.contentNav?.superNav?.viewControllers.last?.xy_isPopGestureEnable ?? true
     }
 }

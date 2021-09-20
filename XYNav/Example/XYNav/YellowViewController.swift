@@ -44,7 +44,7 @@ class YellowViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.barTintColor = .yellow
-//        self.xy_isPopGestureEnable = false
+        self.xy_isPopGestureEnable = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
