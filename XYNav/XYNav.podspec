@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XYNav'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of XYNav.'
+  s.version          = '1.0'
+  s.summary          = 'XYNav 是一个提供更多拓展性的 iOS 系统导航'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  XYNav 是一个 iOS 导航控制器,使用方式完全与系统相同
+  支持独立设置每个页面的navBar、
+  支持全屏返回手势、可自定义手势响应区域、可禁用当前页面的返回手势
                        DESC
 
   s.homepage         = 'https://github.com/xiaoyouPrince/XYNav'

@@ -23,7 +23,6 @@ class XYContentController: UIViewController {
     }
     
     deinit {
-        print("XYContentController","- deinit -")
         self.contentNav?.superNav?.panGesture?.isEnabled = self.contentNav?.superNav?.viewControllers.last?.xy_isPopGestureEnable ?? true
     }
 }
