@@ -278,13 +278,13 @@ extension UIViewController {
         set{
             objc_setAssociatedObject(self, &AssociatedKeys.isPopGestureEnable, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
-            if self.navigationController != nil {
-                self.navigationController?.interactivePopGestureRecognizer?.isEnabled = newValue
-            }else{
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                    self.navigationController?.interactivePopGestureRecognizer?.isEnabled = newValue
-                }
-            }
+//            if self.navigationController != nil {
+//                self.navigationController?.interactivePopGestureRecognizer?.isEnabled = newValue
+//            }else{
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+//                    self.navigationController?.interactivePopGestureRecognizer?.isEnabled = newValue
+//                }
+//            }
         }
         get{
             guard let isPopGestureEnable = objc_getAssociatedObject(self, &AssociatedKeys.isPopGestureEnable) as? Bool else {
