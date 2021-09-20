@@ -25,6 +25,7 @@ class ViewController: BaseViewController {
     @IBAction func push(_ sender: Any) {
         
         let contVC = YellowViewController()
+        contVC.xy_isPopGestureEnable = false
         self.navigationController?.pushViewController(contVC, animated: true)
     }
     

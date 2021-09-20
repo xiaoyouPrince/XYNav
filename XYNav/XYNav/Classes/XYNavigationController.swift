@@ -81,6 +81,7 @@ class XYNavigationController: UINavigationController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+//        self.delegate = self
 
         // Do any additional setup after loading the view.
         
@@ -128,7 +129,7 @@ class XYNavigationController: UINavigationController {
     open override func popViewController(animated: Bool) -> UIViewController? {
         let popVC = super.popViewController(animated: animated)
         if let resultVC = popVC as? XYContentController {
-            return unWarpNewPushVC(resultVC, needResign: true)
+            return unWarpNewPushVC(resultVC, needResign: false)
         }
         return nil
     }
@@ -237,6 +238,30 @@ extension XYNavigationController {
     @objc func popByDefaultAction() -> UIViewController? {
         return self.popViewController(animated: true)
     }
+}
+
+extension XYNavigationController: UINavigationControllerDelegate{
+    
+//    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+//        print("nav",navigationController)
+//        print("didShow",viewController)
+//        print("animated",animated)
+//        
+//        
+//        print("当前 viewControllers", self.viewControllers)
+//        print("当前 childrens", self.children)
+//    }
+    
+//    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//
+//        print(operation.rawValue)
+//
+//        return nil
+//    }
+    
+//    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+//        return nil
+//    }
 }
 
 
