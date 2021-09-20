@@ -76,30 +76,15 @@ class XYNavigationController: UINavigationController {
     // MARK: - open vars
     var panGesture: UIPanGestureRecognizer?
     
-    
-
     // MARK: - life circle
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
-//        self.delegate = self
-
-        // Do any additional setup after loading the view.
         
-        //<_UIParallaxTransitionPanGestureRecognizer: 0x7faec681fe50; state = Possible; delaysTouchesBegan = YES; view = <UILayoutContainerView 0x7faec681d300>; target= <(action=handleNavigationTransition:, target=<_UINavigationInteractiveTransition 0x7faec681fd10>)>>
         super.interactivePopGestureRecognizer?.isEnabled = false
-        panGesture = UIPanGestureRecognizer(target: super.interactivePopGestureRecognizer?.delegate, action: Selector("handleNavigationTransition:"))
+        panGesture = UIPanGestureRecognizer(target: super.interactivePopGestureRecognizer?.delegate, action: Selector(("handleNavigationTransition:")))
         panGesture!.delegate = self
         view.addGestureRecognizer(panGesture!)
         
-
-        
-        // 直接调用 nav 的方法，会直接隐藏 navigationBar 且同时干掉侧滑返回功能
-//        isNavigationBarHidden = true
-//        setNavigationBarHidden(true, animated: false)
-//        setNavigationBarHidden(true, animated: true)
-        
-        // 直接拿到navigationBar本身，设置它自己的 hidden，
         navigationBar.isHidden = true
     }
     
@@ -179,19 +164,6 @@ class XYNavigationController: UINavigationController {
     
     // MARK: - setViewControllers / getViewControllers
     open override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
-        
-//        if viewControllers.count == 0 { return }
-//        if viewControllers.count == 1 {
-//            super.setViewControllers([], animated: false)
-//            self.pushViewController(viewControllers.first!, animated: animated)
-//        }else{
-//            super.setViewControllers([], animated: false)
-//            let prefixVCs = viewControllers.prefix(viewControllers.count - 1)
-//            for prefixVC in prefixVCs {
-//                self.pushViewController(prefixVC, animated: false)
-//            }
-//            self.pushViewController(viewControllers.last!, animated: animated)
-//        }
         var warpedVCs: [UIViewController] = []
         for vc in viewControllers {
             warpedVCs.append(warpVC(vc, self, isRootVC: viewControllers.first == vc))
@@ -200,7 +172,6 @@ class XYNavigationController: UINavigationController {
     }
     
     open override var viewControllers: [UIViewController]{
-        
         set{
             var warpedVCs: [UIViewController] = []
             for vc in newValue {
@@ -208,7 +179,6 @@ class XYNavigationController: UINavigationController {
             }
             super.viewControllers = warpedVCs
         }
-        
         get{
             var resultVCs: [UIViewController] = []
             let warpedVCs = super.viewControllers
@@ -218,22 +188,6 @@ class XYNavigationController: UINavigationController {
             return resultVCs
         }
     }
-    
-    // MARK: - setViewControllers / getViewControllers
-//    open override var topViewController: UIViewController?{
-//        get{ self.viewControllers.last }
-//    }
-//
-//    open override var visibleViewController: UIViewController?{
-//        get{
-//            if super.visibleViewController == self.topViewController {
-//                return self.topViewController
-//            }else{
-//                return super.visibleViewController
-//            }
-//        }
-//    }
-
 }
 
 extension XYNavigationController {
@@ -245,40 +199,15 @@ extension XYNavigationController {
     }
 }
 
-extension XYNavigationController: UINavigationControllerDelegate{
-    
-//    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-//        print("nav",navigationController)
-//        print("didShow",viewController)
-//        print("animated",animated)
-//        
-//        
-//        print("当前 viewControllers", self.viewControllers)
-//        print("当前 childrens", self.children)
-//    }
-    
-//    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//
-//        print(operation.rawValue)
-//
-//        return nil
-//    }
-    
-//    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        return nil
-//    }
-}
-
 extension XYNavigationController : UIGestureRecognizerDelegate{
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        
         if gestureRecognizer == self.panGesture {
             if self.viewControllers.count == 1 {
                 return false
             }
             
             let point = gestureRecognizer.location(in: gestureRecognizer.view)
-            if point.x < (UIScreen.main.bounds.width * self.viewControllers.last!.xy_popGestureRatio) {
+            if point.x < (UIScreen.main.bounds.width * self.viewControllers.last!.xy_popGestureRatio) && self.viewControllers.last!.xy_isPopGestureEnable {
                 return true
             }
             return false
@@ -287,7 +216,6 @@ extension XYNavigationController : UIGestureRecognizerDelegate{
         return true
     }
 }
-
 
 extension UIViewController {
     
@@ -301,14 +229,6 @@ extension UIViewController {
     @objc public var xy_isPopGestureEnable: Bool {
         set{
             objc_setAssociatedObject(self, &AssociatedKeys.isPopGestureEnable, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-//            if self.navigationController != nil {
-//                self.navigationController?.interactivePopGestureRecognizer?.isEnabled = newValue
-//            }else{
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-//                    self.navigationController?.interactivePopGestureRecognizer?.isEnabled = newValue
-//                }
-//            }
         }
         get{
             guard let isPopGestureEnable = objc_getAssociatedObject(self, &AssociatedKeys.isPopGestureEnable) as? Bool else {
@@ -330,16 +250,4 @@ extension UIViewController {
             return popGestureRatio
         }
     }
-    
-    
-//    func navigationController() -> UINavigationController? {
-//        if self.navigationController is XYContentNavController {
-//            self.navigationController?
-//        }else{
-//            return self.navigationController
-//        }
-//
-//        return nil
-//    }
-    
 }

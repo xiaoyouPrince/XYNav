@@ -13,7 +13,6 @@ class XYContentNavController: UINavigationController {
     weak var superNav: XYNavigationController?
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        
         if self.superNav != nil {
             self.superNav?.pushViewController(viewController, animated: animated)
         }else{
@@ -27,7 +26,6 @@ class XYContentNavController: UINavigationController {
         }else{
             super.popViewController(animated: animated)
         }
-        
         return nil
     }
     
@@ -38,7 +36,6 @@ class XYContentNavController: UINavigationController {
             return super.popToViewController(viewController,animated: animated)
         }
     }
-    
     
     open override func popToRootViewController(animated: Bool) -> [UIViewController]? {
         if self.superNav != nil {
@@ -58,7 +55,6 @@ class XYContentNavController: UINavigationController {
     
     override var viewControllers: [UIViewController]{
         set{
-//            setViewControllers(newValue, animated: false)
             if self.superNav != nil {
                 self.superNav?.viewControllers = newValue
             }else{
@@ -73,35 +69,4 @@ class XYContentNavController: UINavigationController {
             }
         }
     }
-    
-//    override var topViewController: UIViewController?
-//    {
-//        get{
-//            if self.superNav != nil {
-//                return superNav?.topViewController
-//            }else{
-//                return super.topViewController
-//            }
-//        }
-//    }
-//    
-//    override var visibleViewController: UIViewController?{
-//        get {
-//            if self.superNav != nil {
-//                return superNav?.visibleViewController
-//            }else{
-//                return super.visibleViewController
-//            }
-//        }
-//    }
-    
-//    override var interactivePopGestureRecognizer: UIGestureRecognizer?{
-//        get {
-//            if self.superNav != nil {
-//                return self.superNav?.interactivePopGestureRecognizer
-//            }else{
-//                return super.interactivePopGestureRecognizer
-//            }
-//        }
-//    }
 }
