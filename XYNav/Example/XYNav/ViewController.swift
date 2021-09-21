@@ -12,12 +12,15 @@ import XYInfomationSection
 class ViewController: XYInfomationBaseViewController {
     
     var dataArray: [String] = []
+    var tableView = UITableView(frame: .zero, style: .plain)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         self.title = "RootVC"
+        self.view.addSubview(tableView)
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -91,8 +94,7 @@ class ViewController: XYInfomationBaseViewController {
 extension ViewController: UITableViewDelegate,UITableViewDataSource {
     
     func reloadUI() {
-        let tableView = UITableView(frame: self.view.bounds)
-        self.view.addSubview(tableView)
+        tableView.frame = self.view.bounds
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -155,6 +157,12 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
             detail.hidesBottomBarWhenPushed = true
             detail.xy_customNavBarClass = CusNavBar.self
             detail.customTransion = true
+            self.navigationController?.pushViewController(detail, animated: true)
+        }
+        
+        if indexPath.row == 8 {
+            let detail = WebViewController()
+            detail.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(detail, animated: true)
         }
     }

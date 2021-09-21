@@ -22,6 +22,7 @@
 		B44F4A4726F1FD0D00AF21C2 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F4A4626F1FD0D00AF21C2 /* GreenViewController.swift */; };
 		B44F4A5026F38F8E00AF21C2 /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F4A4F26F38F8E00AF21C2 /* YellowViewController.swift */; };
 		B44F4A9626F4D73F00AF21C2 /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F4A9526F4D73F00AF21C2 /* RedViewController.swift */; };
+		B4F5AD8626F9E01500CB611F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AD8526F9E01500CB611F /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		B44F4A4626F1FD0D00AF21C2 /* GreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		B44F4A4F26F38F8E00AF21C2 /* YellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
 		B44F4A9526F4D73F00AF21C2 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
+		B4F5AD8526F9E01500CB611F /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D46A4EB9E4723EC44E4A6285 /* Pods-XYNav_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYNav_Tests.debug.xcconfig"; path = "Target Support Files/Pods-XYNav_Tests/Pods-XYNav_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				B44F4A4626F1FD0D00AF21C2 /* GreenViewController.swift */,
 				B4090A2D26F8FE72002B795A /* ScrollViewController.swift */,
 				B4090A3126F9057A002B795A /* TableViewController.swift */,
+				B4F5AD8526F9E01500CB611F /* WebViewController.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -233,10 +236,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = J9CJUEB6H8;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = J9CJUEB6H8;
 						LastSwiftMigration = 1220;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -359,6 +364,7 @@
 				B4090A3A26F908FA002B795A /* CusNavBar.swift in Sources */,
 				B44F4A5026F38F8E00AF21C2 /* YellowViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				B4F5AD8626F9E01500CB611F /* WebViewController.swift in Sources */,
 				B44F4A9626F4D73F00AF21C2 /* RedViewController.swift in Sources */,
 				B4090A3226F9057A002B795A /* TableViewController.swift in Sources */,
 				B4090A2E26F8FE72002B795A /* ScrollViewController.swift in Sources */,
@@ -510,11 +516,12 @@
 			baseConfigurationReference = 62CDA8A8E1BC44307C7077BC /* Pods-XYNav_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J9CJUEB6H8;
 				INFOPLIST_FILE = XYNav/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyou.xynav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -526,11 +533,12 @@
 			baseConfigurationReference = 8542DE2483C44918803A698B /* Pods-XYNav_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J9CJUEB6H8;
 				INFOPLIST_FILE = XYNav/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyou.xynav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -541,6 +549,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D46A4EB9E4723EC44E4A6285 /* Pods-XYNav_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = J9CJUEB6H8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -563,6 +572,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0F53B9C6169D045ADF68FBBE /* Pods-XYNav_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = J9CJUEB6H8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
