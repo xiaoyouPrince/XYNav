@@ -82,7 +82,7 @@ extension TableViewController: UINavigationControllerDelegate, UIViewControllerA
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
 //        TimeInterval(UINavigationController.hideShowBarDuration)
-        return 3.0
+        return 0.7
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -96,20 +96,26 @@ extension TableViewController: UINavigationControllerDelegate, UIViewControllerA
         containerView.addSubview(toVC.view)
         containerView.addSubview(tmpView)
         
-        containerView.setNeedsLayout()
-        containerView.layoutIfNeeded()
+//        containerView.setNeedsLayout()
+//        containerView.layoutIfNeeded()
     
         let ScreenW = UIScreen.main.bounds.width
         let ScreenH = UIScreen.main.bounds.height
         let rect = CGRect(x: 50, y: ScreenH - 50, width: 2, height: 2)
-        
-        let startPath = UIBezierPath(rect: rect)
-//        let endPath = UIBezierPath(arcCenter: containerView.center, radius: sqrt(ScreenH * ScreenH + ScreenW * ScreenW), startAngle: 0, endAngle: .pi/2, clockwise: true)
-        let endPath = UIBezierPath(rect: UIScreen.main.bounds)
+        var startPath = UIBezierPath(rect: rect)
+        if let listVC = self.navigationController?.topViewController as? TableViewController {
+            let indexpath = listVC.tableView.indexPathForSelectedRow
+            let cell = listVC.tableView.cellForRow(at: indexpath ?? IndexPath(row: 0, section: 0))!
+            let frame = listVC.view.convert(cell.frame, from: listVC.tableView)
+            let startFrame = CGRect(x: frame.midX, y: frame.midY, width: 2, height: 2)
+            startPath = UIBezierPath(rect: startFrame)
+        }
+        let endPath = UIBezierPath(rect: toVC.view.frame)
         
         let maskLayer = CAShapeLayer()
         maskLayer.path = endPath.cgPath
-        tmpView.layer.mask = maskLayer
+        maskLayer.fillColor = UIColor.green.cgColor
+        toVC.view.layer.mask = maskLayer
         
         let animation = CABasicAnimation(keyPath: "path")
         animation.delegate = self
@@ -117,8 +123,8 @@ extension TableViewController: UINavigationControllerDelegate, UIViewControllerA
         animation.fromValue = startPath.cgPath
         animation.toValue = endPath.cgPath
         animation.duration = self.transitionDuration(using: transitionContext)
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        maskLayer.add(animation, forKey: "path")
+        animation.timingFunction = CAMediaTimingFunction(name: .easeIn)
+        maskLayer.add(animation, forKey: "path3")
         self.transitionContext = transitionContext
         
 //        toVC.view.alpha = 0

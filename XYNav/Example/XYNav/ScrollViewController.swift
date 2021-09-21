@@ -30,6 +30,14 @@ class ScrollViewController: BaseViewController {
         let imgIV = UIImageView(image:img)
         scrollView.addSubview(imgIV)
         scrollView.contentSize = img!.size
+        
+        
+        // ScrollView 中暂时还有问题: 侧滑返回手势会被挡住
+        // 暂时解决方案:
+        // 页面内部写一个左边透明层，挡住scrollView的手势区域
+        let cover = UIView()
+        view.addSubview(cover)
+        cover.frame = CGRect(x: 0, y: 0, width: 10, height: UIScreen.main.bounds.height)
     }
 
 }
