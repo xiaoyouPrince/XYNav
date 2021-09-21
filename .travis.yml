@@ -15,14 +15,14 @@
 #- pod lib lint
 
 osx_image: xcode12
-language: swift5.0
+language: objective-c 
 cache: cocoapods
 xcode_project: XYNav/Example/XYNav.xcworkspace
 xcode_scheme: XYNav-Example
 podfile: XYNav/Example/Podfile
 before_install:
 - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-- brew install cocoapods # Since Travis is not always on latest version
+- sudo gem install cocoapods # Since Travis is not always on latest version
 #- pod install --project-directory=Example
 - cd XYNav/Example
 - pod update
