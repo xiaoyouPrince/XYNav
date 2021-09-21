@@ -149,6 +149,14 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
             detail.xy_customNavBarClass = CusNavBar.self
             self.navigationController?.pushViewController(detail, animated: true)
         }
+        
+        if indexPath.row == 7 {
+            let detail = TableViewController()
+            detail.hidesBottomBarWhenPushed = true
+            detail.xy_customNavBarClass = CusNavBar.self
+            detail.customTransion = true
+            self.navigationController?.pushViewController(detail, animated: true)
+        }
     }
 }
 

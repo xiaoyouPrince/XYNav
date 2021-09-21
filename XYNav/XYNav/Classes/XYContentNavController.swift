@@ -69,4 +69,21 @@ class XYContentNavController: UINavigationController {
             }
         }
     }
+    
+    override var delegate: UINavigationControllerDelegate?{
+        set{
+            if self.superNav != nil {
+                self.superNav?.delegate = newValue
+            }else{
+                super.delegate = newValue
+            }
+        }
+        get{
+            if self.superNav != nil {
+                return self.superNav!.delegate
+            }else{
+                return super.delegate
+            }
+        }
+    }
 }

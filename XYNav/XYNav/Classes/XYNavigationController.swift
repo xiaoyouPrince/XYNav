@@ -266,4 +266,12 @@ extension UIViewController {
             return customNavBarClass
         }
     }
+    
+//    public var xy_navigationController: UINavigationController? {
+//        if let nav = self.navigationController as? XYContentNavController {
+//            return nav.superNav
+//        }else{
+//            return self.navigationController
+//        }
+//    }
 }
