@@ -25,7 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
         
         let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabVC")
-        tabVC.addChild(XYNavigationController(rootViewController: vc))
+        let nav = XYNavigationController(rootViewController: vc)
+        nav.title = "Root"
+        nav.tabBarItem.image = UIImage(named: "ic_tab_msg_pre_old")
+        tabVC.addChild(nav)
         window?.rootViewController = tabVC
         
         // UIStoryboard 直接创建
@@ -60,3 +63,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+extension UIColor {
+    
+    @objc static public func xy_getColor(hex: Int) -> UIColor {
+        let r = ((CGFloat)(hex >> 16 & 0xFF))
+        let g = ((CGFloat)(hex >> 8 & 0xFF))
+        let b = ((CGFloat)(hex & 0xFF))
+        let color = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
+        return color
+    }
+}

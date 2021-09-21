@@ -8,6 +8,8 @@
 import UIKit
 
 class GreenViewController: BaseViewController {
+    
+    var hideNavBar = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,7 @@ class GreenViewController: BaseViewController {
             // Fallback on earlier versions
         }
         
-        
+        self.navigationController?.navigationBar.isHidden = hideNavBar
         
         let btn = UIButton()
         self.view.addSubview(btn)
@@ -54,5 +56,11 @@ class GreenViewController: BaseViewController {
         let detail = YellowViewController()
 //        detail.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detail, animated: true)
+        
+        if self.navigationController == nil {
+            //self.presentingViewController 是 tabbarVC， 不能同时present多个
+//            self.presentingViewController?.present(detail, animated: true, completion: nil)
+            self.present(detail, animated: true, completion: nil)
+        }
     }
 }

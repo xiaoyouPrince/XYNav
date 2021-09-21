@@ -11,6 +11,10 @@ class XYContentController: UIViewController {
     weak var contentNav: XYContentNavController?
     weak var contentVc: UIViewController?
     
+    override func viewDidLoad() {
+        print("XYContentController.viewDidLoad")
+    }
+    
     override var description: String{
         get{
             """

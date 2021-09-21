@@ -11,7 +11,8 @@ func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController
     if desVC is XYContentController { return desVC }
     
     let contVC = XYContentController()
-    let nav = XYContentNavController(rootViewController: desVC)
+    let nav = XYContentNavController(navigationBarClass: desVC.xy_customNavBarClass, toolbarClass: nil)
+    nav.pushViewController(desVC, animated: false)
     nav.superNav = superNav
     contVC.addChild(nav)
     contVC.view.addSubview(nav.view)
@@ -222,6 +223,8 @@ extension UIViewController {
     fileprivate struct AssociatedKeys {
         static var isPopGestureEnable: String = "isPopGestureEnable"
         static var popGestureRatio: String = "popGestureRatio"
+        static var customNavBarClass: String = "customNavBarClass"
+        
     }
     
     // MARK: - 是否启用侧滑返回功能
@@ -248,6 +251,19 @@ extension UIViewController {
                 return 0.1
             }
             return popGestureRatio
+        }
+    }
+    
+    /// 支持侧滑返回的比例 0~1
+    @objc public var xy_customNavBarClass: AnyClass {
+        set{
+            objc_setAssociatedObject(self, &AssociatedKeys.customNavBarClass, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        get{
+            guard let customNavBarClass = objc_getAssociatedObject(self, &AssociatedKeys.customNavBarClass) as? AnyClass else {
+                return UINavigationBar.self
+            }
+            return customNavBarClass
         }
     }
 }
