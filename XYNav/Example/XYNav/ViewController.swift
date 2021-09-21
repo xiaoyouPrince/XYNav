@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import XYInfomationSection
 
-class ViewController: XYInfomationBaseViewController {
+
+class ViewController: BaseViewController {
     
     var dataArray: [String] = []
     var tableView = UITableView(frame: .zero, style: .plain)
