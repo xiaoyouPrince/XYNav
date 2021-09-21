@@ -21,6 +21,8 @@ xcode_project: XYNav/Example/XYNav.xcworkspace
 xcode_scheme: XYNav-Example
 podfile: XYNav/Example/Podfile
 before_install:
+- gem install cocoapods # Since Travis is not always on latest version
+#- pod install --project-directory=Example
 - cd XYNav/Example
 - pod update
 script:
