@@ -15,7 +15,7 @@
 #- pod lib lint
 
 osx_image: xcode12
-language: swift
+language: swift5.0
 cache: cocoapods
 xcode_project: XYNav/Example/XYNav.xcworkspace
 xcode_scheme: XYNav-Example

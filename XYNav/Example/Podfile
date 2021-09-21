@@ -4,7 +4,6 @@ platform :ios, '9.0'
 
 target 'XYNav_Example' do
   pod 'XYNav', :path => '../'
-  pod 'XYInfomationSection'
 
   target 'XYNav_Tests' do
     inherit! :search_paths
