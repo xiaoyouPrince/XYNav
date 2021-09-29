@@ -212,7 +212,7 @@ extension XYNavigationController : UIGestureRecognizerDelegate{
             return false
         }
         
-        return true
+        return false
     }
 }
 
