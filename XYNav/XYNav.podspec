@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   
   s.swift_version = '5.0'
 
-  s.source_files = 'XYNav/Classes/**/*'
+  s.source_files = 'XYNav/XYNav/Classes/**/*'
   
   # s.resource_bundles = {
   #   'XYNav' => ['XYNav/Assets/*.png']
