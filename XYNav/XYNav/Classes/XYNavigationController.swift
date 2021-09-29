@@ -91,9 +91,8 @@ class XYNavigationController: UINavigationController {
     
     // MARK: - 初始化
     public override init(rootViewController: UIViewController) {
+        // this method will call pushVC internal
         super.init(rootViewController: rootViewController)
-        let newVC = warpNewPushVC(rootViewController, self)
-        self.setViewControllers([newVC], animated: false)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -103,8 +102,7 @@ class XYNavigationController: UINavigationController {
             return
         }
         
-        let newVC = warpNewPushVC(rootVC, self)
-        self.setViewControllers([newVC], animated: false)
+        self.pushViewController(rootVC, animated: false)
     }
     
     // MARK: - push & pop
@@ -224,7 +222,6 @@ extension UIViewController {
         static var isPopGestureEnable: String = "isPopGestureEnable"
         static var popGestureRatio: String = "popGestureRatio"
         static var customNavBarClass: String = "customNavBarClass"
-        
     }
     
     // MARK: - 是否启用侧滑返回功能
