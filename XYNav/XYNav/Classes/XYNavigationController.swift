@@ -254,7 +254,9 @@ extension UIViewController {
         }
     }
     
-    /// 支持侧滑返回的比例 0~1
+    /// 设置自定义类型的导航栏
+    ///
+    /// 必须在调用 push方法之前进行设置。默认使用 UINavigationBar
     @objc public var xy_customNavBarClass: AnyClass {
         set{
             objc_setAssociatedObject(self, &AssociatedKeys.customNavBarClass, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -266,12 +268,24 @@ extension UIViewController {
             return customNavBarClass
         }
     }
-    
-//    public var xy_navigationController: UINavigationController? {
-//        if let nav = self.navigationController as? XYContentNavController {
-//            return nav.superNav
-//        }else{
-//            return self.navigationController
-//        }
-//    }
+}
+
+extension XYNavigationController: UINavigationBarDelegate {
+    public func navigationBar(_ navigationBar: UINavigationBar, shouldPush item: UINavigationItem) -> Bool {
+        if let topVC = super.topViewController as? XYContentController {
+            if topVC.contentVc?.xy_customNavBarClass == UINavigationBar.self {
+                topVC.contentNav?.navigationBar.isTranslucent = false
+            }
+        }
+        return true
+    }
+}
+
+func getImageWithColor(_ color: UIColor) -> UIImage {
+    UIGraphicsBeginImageContextWithOptions(CGSize(width: 1, height: 1), false, 0)
+    let ctx = UIGraphicsGetCurrentContext()
+    ctx?.setFillColor(color.cgColor)
+    ctx?.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    return image ?? UIImage()
 }
