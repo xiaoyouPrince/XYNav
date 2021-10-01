@@ -15,5 +15,5 @@ before_install:
 - cd XYNav/Example
 - pod update
 script:
-- cd ../
+- cd ../../
 - pod lib lint
