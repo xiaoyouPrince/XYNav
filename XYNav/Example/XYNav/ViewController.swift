@@ -155,7 +155,8 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 7 {
             let detail = TableViewController()
             detail.hidesBottomBarWhenPushed = true
-            detail.xy_customNavBarClass = CusNavBar.self
+//            detail.xy_customNavBarClass = CusNavBar.self
+            detail.title = "你好"
             detail.customTransion = true
             self.navigationController?.pushViewController(detail, animated: true)
         }
