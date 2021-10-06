@@ -21,20 +21,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        // 直接通过 rootViewController 创建
+        // MARK:  - 创建方式1，直接 navVC，无 tabbarVC
+        // 直接通过
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
-        
-        let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabVC")
         let nav = XYNavigationController(rootViewController: vc)
-        nav.title = "Root"
-        nav.tabBarItem.image = UIImage(named: "ic_tab_msg_pre_old")
-        tabVC.addChild(nav)
-        window?.rootViewController = tabVC
+        window?.rootViewController = nav
         
-        // UIStoryboard 直接创建
+        // MARK:  - 创建方式2，直接从 stroyBoard 中加载 navVC。此方式甚至无需导入头文件
+        // UIStoryboard 直接创建，直接使用 sb 亦可
 //        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "xynav")
 //        window?.rootViewController = vc
         
+        
+        // MARK:  - 创建方式3，直接 navVC，创建 tabbarVC
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
+//        let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabVC")
+//        let nav = XYNavigationController(rootViewController: vc)
+//        nav.title = "Root"
+//        nav.tabBarItem.image = UIImage(named: "ic_tab_msg_pre_old")
+//        tabVC.addChild(nav)
+//        window?.rootViewController = tabVC
         return true
     }
 

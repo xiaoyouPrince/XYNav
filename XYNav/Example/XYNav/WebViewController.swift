@@ -64,6 +64,11 @@ class WebViewController: UIViewController {
             share
         ]
         
+        if #available(iOS 15.0, *) {
+            let appearance = UIToolbarAppearance()
+            appearance.backgroundColor = UIColor.systemBackground
+            self.navigationController?.toolbar.scrollEdgeAppearance = appearance
+        } else {}
         webView!.load(URLRequest(url: URL(string: "https://www.baidu.com")!))
     }
     
