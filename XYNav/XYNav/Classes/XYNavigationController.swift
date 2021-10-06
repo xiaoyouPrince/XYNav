@@ -260,21 +260,10 @@ extension UIViewController {
         }
         get{
             guard let customNavBarClass = objc_getAssociatedObject(self, &AssociatedKeys.customNavBarClass) as? AnyClass else {
-                return UINavigationBar.self
+                return XYNavBar.self
             }
             return customNavBarClass
         }
-    }
-}
-
-extension XYNavigationController: UINavigationBarDelegate {
-    public func navigationBar(_ navigationBar: UINavigationBar, shouldPush item: UINavigationItem) -> Bool {
-        if let topVC = super.topViewController as? XYContentController {
-            if topVC.contentVc?.xy_customNavBarClass == UINavigationBar.self {
-                topVC.contentNav?.navigationBar.isTranslucent = false
-            }
-        }
-        return true
     }
 }
 

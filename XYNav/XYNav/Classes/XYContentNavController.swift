@@ -11,6 +11,15 @@ class XYContentNavController: UINavigationController {
     
     /// 上级 nav
     weak var superNav: XYNavigationController?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = UIColor.systemBackground
+            navigationBar.scrollEdgeAppearance = appearance
+        } else {}
+    }
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.superNav != nil {
@@ -84,6 +93,18 @@ class XYContentNavController: UINavigationController {
             }else{
                 return super.delegate
             }
+        }
+    }
+}
+
+class XYNavBar: UINavigationBar {
+    override var barTintColor: UIColor? {
+        didSet{
+            if #available(iOS 13.0, *) {
+                let appearance = UINavigationBarAppearance()
+                appearance.backgroundColor = barTintColor
+                self.scrollEdgeAppearance = appearance
+            } else {}
         }
     }
 }
