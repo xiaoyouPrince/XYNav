@@ -25,6 +25,14 @@ class GreenViewController: BaseViewController {
             // Fallback on earlier versions
         }
         
+        self.navigationItem.leftBarButtonItems = [
+            UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(back)),
+            UIBarButtonItem.init(title: "nav 栈", style: .plain, target: self, action: #selector(navStack))
+        ]
+        for item in self.navigationItem.leftBarButtonItems! {
+            item.tintColor = UIColor.red
+        }
+        
         self.navigationController?.navigationBar.isHidden = hideNavBar
         
         let btn = UIButton()

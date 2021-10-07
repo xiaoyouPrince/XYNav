@@ -14,7 +14,7 @@ class ScrollViewController: BaseViewController {
         super.viewDidLoad()
         
         self.title = "你好"
-        self.navigationItem.prompt = "踏空"
+        self.navigationItem.prompt = "我是一个站位描述"
         
         self.xy_popGestureRatio = 1.0
         view.backgroundColor = UIColor.groupTableViewBackground
