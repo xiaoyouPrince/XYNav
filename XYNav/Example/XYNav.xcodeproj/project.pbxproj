@@ -25,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		0571DE3C40F21A4EEA65FC9E /* Pods_XYNav_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYNav_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F53B9C6169D045ADF68FBBE /* Pods-XYNav_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYNav_Tests.release.xcconfig"; path = "Target Support Files/Pods-XYNav_Tests/Pods-XYNav_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5A557C892868030EC288CA21 /* Pods_XYNav_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYNav_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* XYNav_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XYNav_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,7 +47,6 @@
 		B44F4A4F26F38F8E00AF21C2 /* YellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
 		B44F4A9526F4D73F00AF21C2 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
 		B4F5AD8526F9E01500CB611F /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		D46A4EB9E4723EC44E4A6285 /* Pods-XYNav_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYNav_Tests.debug.xcconfig"; path = "Target Support Files/Pods-XYNav_Tests/Pods-XYNav_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +66,6 @@
 			children = (
 				62CDA8A8E1BC44307C7077BC /* Pods-XYNav_Example.debug.xcconfig */,
 				8542DE2483C44918803A698B /* Pods-XYNav_Example.release.xcconfig */,
-				D46A4EB9E4723EC44E4A6285 /* Pods-XYNav_Tests.debug.xcconfig */,
-				0F53B9C6169D045ADF68FBBE /* Pods-XYNav_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -427,7 +423,7 @@
 				DEVELOPMENT_TEAM = J9CJUEB6H8;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = XYNav/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				ONLY_ACTIVE_ARCH = YES;
@@ -446,7 +442,7 @@
 				DEVELOPMENT_TEAM = J9CJUEB6H8;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = XYNav/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				ONLY_ACTIVE_ARCH = YES;

@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class WebViewController: UIViewController {
+class WebViewController: BaseViewController {
 
     var webView: WKWebView?
     var indicateLabel = UILabel()
@@ -42,6 +42,7 @@ class WebViewController: UIViewController {
         super.viewDidLoad()
         
 //        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.tintColor = UIColor.red
         self.navigationController?.isToolbarHidden = false
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinnerView)

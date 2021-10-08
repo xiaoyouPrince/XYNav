@@ -95,9 +95,6 @@ extension TableViewController: UINavigationControllerDelegate, UIViewControllerA
         containerView.addSubview(fromVC.view)
         containerView.addSubview(toVC.view)
         containerView.addSubview(tmpView)
-        
-//        containerView.setNeedsLayout()
-//        containerView.layoutIfNeeded()
     
         let ScreenW = UIScreen.main.bounds.width
         let ScreenH = UIScreen.main.bounds.height
@@ -124,15 +121,8 @@ extension TableViewController: UINavigationControllerDelegate, UIViewControllerA
         animation.toValue = endPath.cgPath
         animation.duration = self.transitionDuration(using: transitionContext)
         animation.timingFunction = CAMediaTimingFunction(name: .easeIn)
-        maskLayer.add(animation, forKey: "path3")
+        maskLayer.add(animation, forKey: "path")
         self.transitionContext = transitionContext
         
-//        toVC.view.alpha = 0
-//        UIView.transition(with: containerView, duration: transitionDuration(using: transitionContext), options: .curveLinear) {
-//            toVC.view.alpha = 1
-//        } completion: { (finish) in
-//            containerView.subviews.last?.removeFromSuperview()
-//            transitionContext.completeTransition(true)
-//        }
     }
 }
