@@ -191,6 +191,16 @@ class XYNavigationController: UINavigationController {
             return resultVCs
         }
     }
+    
+    // MARK: - visibleViewController/topViewController
+    open override var visibleViewController: UIViewController?{
+        let visibelVC = super.visibleViewController
+        if let contentVC = visibelVC as? XYContentController{
+            return contentVC.contentVc
+        }else{
+            return visibelVC
+        }
+    }
 }
 
 extension XYNavigationController {
