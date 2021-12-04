@@ -103,7 +103,16 @@ class XYNavBar: UINavigationBar {
             if #available(iOS 13.0, *) {
                 let appearance = UINavigationBarAppearance()
                 appearance.backgroundColor = barTintColor
+                self.standardAppearance = appearance
                 self.scrollEdgeAppearance = appearance
+            } else {}
+        }
+    }
+    
+    override var isTranslucent: Bool{
+        didSet{
+            if #available(iOS 13.0, *), isTranslucent == false  {
+                barTintColor = barTintColor ?? .systemBackground
             } else {}
         }
     }
