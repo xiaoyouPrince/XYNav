@@ -166,10 +166,21 @@ class XYNavigationController: UINavigationController {
     
     
     // MARK: - setViewControllers / getViewControllers
+    private func filterVC(vc: UIViewController, inCurrentVCs: [UIViewController]) -> UIViewController {
+        let currentVCs = inCurrentVCs
+        for currentVC in currentVCs {
+            if let contentVC = currentVC as? XYContentController, contentVC.contentVc == vc {
+                return contentVC
+            }
+        }
+        return vc
+    }
     open override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
         var warpedVCs: [UIViewController] = []
+        let currentVCs = super.viewControllers
         for vc in viewControllers {
-            warpedVCs.append(warpVC(vc, self, isRootVC: viewControllers.first == vc))
+            let desVC = filterVC(vc: vc, inCurrentVCs: currentVCs)
+            warpedVCs.append(warpVC(desVC, self, isRootVC: viewControllers.first == vc))
         }
         super.setViewControllers(warpedVCs, animated: animated)
     }
@@ -177,8 +188,10 @@ class XYNavigationController: UINavigationController {
     open override var viewControllers: [UIViewController]{
         set{
             var warpedVCs: [UIViewController] = []
+            let currentVCs = super.viewControllers
             for vc in newValue {
-                warpedVCs.append(warpVC(vc, self, isRootVC: viewControllers.first == vc))
+                let desVC = filterVC(vc: vc, inCurrentVCs: currentVCs)
+                warpedVCs.append(warpVC(desVC, self, isRootVC: viewControllers.first == vc))
             }
             super.viewControllers = warpedVCs
         }
