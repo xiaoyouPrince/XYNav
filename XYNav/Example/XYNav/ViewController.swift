@@ -18,12 +18,16 @@ class ViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+                        
+
+        navigationController?.setNavigationBarHidden(true, animated: true)
         
         self.title = "RootVC"
         self.view.addSubview(tableView)
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // navigationBar 需要在此函数中才能被加载到，
         // 对 navigationBar 的设置需要放到此函数才有效
         self.navigationController?.navigationBar.isTranslucent = false
@@ -39,7 +43,15 @@ class ViewController: BaseViewController {
             "批量setVCs, pop到指定VC",
             "TableView 自定义 NavBar",
             "自定义转场动画",
+            "底部 toolbar",
+            "底部 toolbar",
+            "底部 toolbar","底部 toolbar",
+            "底部 toolbar","底部 toolbar",
+            "底部 toolbar","底部 toolbar",
+            "底部 toolbar","底部 toolbar","底部 toolbar",
+            "底部 toolbar","底部 toolbar","底部 toolbar",
             "底部 toolbar"
+            
         ]
         reloadUI()
     }
@@ -97,6 +109,11 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         tableView.frame = self.view.bounds
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = self.view.bounds
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
