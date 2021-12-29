@@ -111,12 +111,9 @@ class XYNavigationController: UINavigationController {
     
     // MARK: - push & pop
     open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        let newVC = warpNewPushVC(viewController, self)
-        if viewControllers.count > 0 {
-            newVC.hidesBottomBarWhenPushed = true
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: getBackImage(), style: .plain, target: self, action: #selector(popByDefaultAction))
-        }
-        super.pushViewController(newVC, animated: animated)
+        var currentVCs = viewControllers
+        currentVCs.append(viewController)
+        setViewControllers(currentVCs, animated: animated)
     }
     
     open override func popViewController(animated: Bool) -> UIViewController? {
