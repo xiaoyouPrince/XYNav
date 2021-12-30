@@ -105,8 +105,7 @@ class XYNavigationController: UINavigationController {
         guard let rootVC = self.viewControllers.first else {
             return
         }
-        
-        self.pushViewController(rootVC, animated: false)
+        setViewControllers([rootVC], animated: false)
     }
     
     // MARK: - push & pop
