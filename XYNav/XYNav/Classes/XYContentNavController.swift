@@ -14,7 +14,7 @@ class XYContentNavController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
+        if #available(iOS 15.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.backgroundColor = UIColor.systemBackground
             navigationBar.scrollEdgeAppearance = appearance

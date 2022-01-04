@@ -21,10 +21,17 @@ class ViewController: BaseViewController {
                         
 
         navigationController?.setNavigationBarHidden(true, animated: true)
+        if #available(iOS 15.0, *) {
+            let app = UITabBarAppearance()
+            app.selectionIndicatorTintColor = .red
+            tabBarController?.tabBar.scrollEdgeAppearance = app
+        } else {
+            // Fallback on earlier versions
+        }
         
-        self.title = "RootVC"
+        let index = tabBarController?.selectedIndex ?? 0
+        self.title = "RootVC - \(index)"
         self.view.addSubview(tableView)
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,6 +40,14 @@ class ViewController: BaseViewController {
         self.navigationController?.navigationBar.isTranslucent = false
 //        self.tabBarController?.tabBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.xy_getColor(hex: 0x006aff)
+        
+        if #available(iOS 15.0, *) {
+            let app = UITabBarAppearance()
+            app.backgroundColor = .red
+            tabBarController?.tabBar.scrollEdgeAppearance = app
+        } else {
+            // Fallback on earlier versions
+        }
         
         dataArray = [
             "普通",
