@@ -11,16 +11,62 @@ import UIKit
 
 class ViewController: BaseViewController {
     
+    static var time = 0
+    
+    @objc func pageCode() -> String{
+        return "10"
+    }
+    
     var dataArray: [String] = []
     var tableView = UITableView(frame: .zero, style: .plain)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        var a = [1,2,3,4,5]
+        a.replaceSubrange(1...1, with: [5])
+        print("a ------ \(a)")
+        
+        
+        
         // Do any additional setup after loading the view.
-                        
-
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        if self.responds(to: Selector(stringLiteral: "pageCode")) {
+            let code = self.perform(Selector(stringLiteral: "pageCode"))
+//            if let aa = code as? Int{
+//                print("code = \(aa)")
+//            }
+            
+            print(type(of: code))
+            
+            if let theCode = code?.takeRetainedValue() as? String {
+                print(theCode)
+            }
+            
+        }
+        
+        let code: Int? = 10
+        if code == 10 {
+            print("code == 10")
+        }
+        
+        if code != nil, code != 5 {
+            print("code 非空且 != 5")
+        }
+        
+        if code != nil && code != 5 {
+            print("code 非空且 != 5")
+        }
+        
+//        print(self.self) // 打印对象
+//        print(type(of: self)) // 打印对象的类型
+        
+        if ViewController.time >= 1 {
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+        ViewController.time += 1
+        
         if #available(iOS 15.0, *) {
             let app = UITabBarAppearance()
             app.selectionIndicatorTintColor = .red

@@ -54,6 +54,7 @@ class RedViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.barTintColor = .red
+        self.navigationController?.navigationBar.tintColor = .yellow
     }
     
     @objc
@@ -63,6 +64,10 @@ class RedViewController: BaseViewController {
     @objc
     func navStack() {
         print(self.navigationController?.viewControllers)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_risk_tip_close"), style: .plain, target: self, action: #selector(back))
+        
+//        self.navigationController?.navigationBar.barTintColor = .yellow
     }
     
     @objc

@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+//        XYNavigationController.setDefaultBackImage(UIImage(named: "ic_risk_tip_close")!)
+        XYNavigationController.setDefaultBackImage(UIImage(named: "icon_back")!)
         return true
         
 //        UINavigationBar.appearance().compactScrollEdgeAppearance = UINavigationBarAppearance()

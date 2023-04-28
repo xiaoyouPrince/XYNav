@@ -214,6 +214,11 @@ class XYNavigationController: UINavigationController {
 
 extension XYNavigationController {
     
+    static public func setDefaultBackImage(_ image: UIImage) {
+        let image = image.withRenderingMode(.alwaysOriginal)
+        backImage = image
+    }
+    
     /// XYNav 自定义返回 pop 事件
     /// - Returns: 返回最顶部的 viewController
     @objc func popByDefaultAction() -> UIViewController? {
