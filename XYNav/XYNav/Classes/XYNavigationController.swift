@@ -244,57 +244,6 @@ extension XYNavigationController : UIGestureRecognizerDelegate{
     }
 }
 
-extension UIViewController {
-    
-    fileprivate struct AssociatedKeys {
-        static var isPopGestureEnable: String = "isPopGestureEnable"
-        static var popGestureRatio: String = "popGestureRatio"
-        static var customNavBarClass: String = "customNavBarClass"
-    }
-    
-    // MARK: - 是否启用侧滑返回功能
-    /// 默认支持侧滑返回功能
-    @objc public var xy_isPopGestureEnable: Bool {
-        set{
-            objc_setAssociatedObject(self, &AssociatedKeys.isPopGestureEnable, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-        get{
-            guard let isPopGestureEnable = objc_getAssociatedObject(self, &AssociatedKeys.isPopGestureEnable) as? Bool else {
-                return true
-            }
-            return isPopGestureEnable
-        }
-    }
-    
-    /// 支持侧滑返回的比例 0~1
-    @objc public var xy_popGestureRatio: CGFloat {
-        set{
-            objc_setAssociatedObject(self, &AssociatedKeys.popGestureRatio, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-        get{
-            guard let popGestureRatio = objc_getAssociatedObject(self, &AssociatedKeys.popGestureRatio) as? CGFloat else {
-                return 0.1
-            }
-            return popGestureRatio
-        }
-    }
-    
-    /// 设置自定义类型的导航栏
-    ///
-    /// 必须在调用 push方法之前进行设置。默认使用 UINavigationBar
-    @objc public var xy_customNavBarClass: AnyClass {
-        set{
-            objc_setAssociatedObject(self, &AssociatedKeys.customNavBarClass, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-        get{
-            guard let customNavBarClass = objc_getAssociatedObject(self, &AssociatedKeys.customNavBarClass) as? AnyClass else {
-                return XYNavBar.self
-            }
-            return customNavBarClass
-        }
-    }
-}
-
 func getImageWithColor(_ color: UIColor) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(CGSize(width: 1, height: 1), false, 0)
     let ctx = UIGraphicsGetCurrentContext()
