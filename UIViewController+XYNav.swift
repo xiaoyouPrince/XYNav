@@ -13,6 +13,7 @@ public extension UIViewController {
         static var isPopGestureEnable: String = "isPopGestureEnable"
         static var popGestureRatio: String = "popGestureRatio"
         static var customNavBarClass: String = "customNavBarClass"
+        static var customNavBackAction: String = "customNavBackAction"
     }
     
     // MARK: - 是否启用侧滑返回功能
@@ -100,6 +101,42 @@ public extension UIViewController {
         
         if let bar = navigationController?.navigationBar {
             hideLine(view: bar)
+        }
+    }
+    
+    /// 外界设置的自定义的返回事件
+    /// 返回值表示是否完成, true 自定义事件完成不中断, false 自定义事件未完成,中断事件
+    private var customNavBackAction: ()->Bool {
+        set{
+            objc_setAssociatedObject(self, &AssociatedKeys.customNavBackAction, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        get{
+            guard let customNavBackAction = objc_getAssociatedObject(self, &AssociatedKeys.customNavBackAction) as? ()->Bool else {
+                return {true} // default is ture
+            }
+            return customNavBackAction
+        }
+    }
+    
+    /// 设置自定义的返回按钮图片, 并设置一个点击回调
+    /// - Parameters:
+    ///   - backImage: 自定义返回按钮
+    ///   - callback: 自定义返回事件, 按钮点击的时候callback执行, 调用方需要返回自定义方法是否符合条件执行完成.
+    ///     - callback 返回值 true 表示自定义方法完成, 后续执行 pop
+    ///     - 返回值为 false 表示自定义方法未完成, 中断 pop
+    @objc
+    func nav_setCustom(backImage: UIImage?, callback: (()->Bool)?){
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(customBackAction_private))
+        
+        if let callback = callback {
+            customNavBackAction = callback
+        }
+    }
+    
+    @objc
+    private func customBackAction_private(){
+        if customNavBackAction() {
+            navigationController?.popViewController(animated: true)
         }
     }
 }
