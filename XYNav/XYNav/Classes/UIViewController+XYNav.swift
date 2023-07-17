@@ -118,6 +118,13 @@ public extension UIViewController {
         }
     }
     
+    @objc
+    private func customBackAction_private(){
+        if customNavBackAction() {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
     /// 设置自定义的返回按钮图片, 并设置一个点击回调
     /// - Parameters:
     ///   - backImage: 自定义返回按钮
@@ -125,7 +132,7 @@ public extension UIViewController {
     ///     - callback 返回值 true 表示自定义方法完成, 后续执行 pop
     ///     - 返回值为 false 表示自定义方法未完成, 中断 pop
     @objc
-    func nav_setCustom(backImage: UIImage?, callback: (()->Bool)?){
+    func nav_setCustom(backImage: UIImage?, callback: (()->Bool)? = {true}){
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(customBackAction_private))
         
         if let callback = callback {
@@ -133,10 +140,4 @@ public extension UIViewController {
         }
     }
     
-    @objc
-    private func customBackAction_private(){
-        if customNavBackAction() {
-            navigationController?.popViewController(animated: true)
-        }
-    }
 }
