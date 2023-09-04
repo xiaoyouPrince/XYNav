@@ -29,4 +29,11 @@ class XYContentController: UIViewController {
     deinit {
         self.contentNav?.superNav?.panGesture?.isEnabled = self.contentNav?.superNav?.viewControllers.last?.xy_isPopGestureEnable ?? true
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if let contentVC = contentVc {
+            return contentVC.preferredStatusBarStyle
+        }
+        return .default
+    }
 }

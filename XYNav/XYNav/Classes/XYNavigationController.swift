@@ -210,6 +210,13 @@ class XYNavigationController: UINavigationController {
             return visibelVC
         }
     }
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        if let vc = topViewController {
+            return vc.preferredStatusBarStyle
+        }
+        return .default
+    }
 }
 
 extension XYNavigationController {

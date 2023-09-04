@@ -67,8 +67,23 @@ public extension UIViewController {
     ///   - viewController: 目标控制器
     ///   - animated: 是否动画
     @objc
-    func push(_ viewController: UIViewController, animated: Bool) {
+    func push(_ viewController: UIViewController, animated: Bool) { nav_push(viewController, animated: animated) }
+    
+    @objc
+    func nav_push(_ viewController: UIViewController, animated: Bool) {
         navigationController?.pushViewController(viewController, animated: animated)
+    }
+    
+    
+    /// 控制器拓展一个便捷 present 其他控制的方法
+    /// - Parameters:
+    ///   - viewController: 目标控制器
+    ///   - animated: 是否动画
+    @objc
+    func nav_present(_ viewController: UIViewController, animated: Bool) {
+        let detail = XYNavigationController(rootViewController: viewController)
+        detail.modalPresentationStyle = viewController.modalPresentationStyle
+        present(detail, animated: animated)
     }
     
     /// 导航条隐藏默认的返回按钮
@@ -122,6 +137,7 @@ public extension UIViewController {
     private func customBackAction_private(){
         if customNavBackAction() {
             navigationController?.popViewController(animated: true)
+            dismiss(animated: true)
         }
     }
     
@@ -138,6 +154,13 @@ public extension UIViewController {
         if let callback = callback {
             customNavBackAction = callback
         }
+    }
+    
+    /// 导航栏设置 barTintColor  - 效果是设置自定义导航栏背景色
+    /// - Parameter color: 用户设定的颜色
+    @objc
+    func nav_setBarTintColor(color: UIColor){
+        navigationController?.navigationBar.barTintColor = color
     }
     
 }

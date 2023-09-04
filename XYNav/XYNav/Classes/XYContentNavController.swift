@@ -116,7 +116,14 @@ class XYNavBar: UINavigationBar {
                 let appearance = UINavigationBarAppearance()
                 appearance.backgroundColor = barTintColor
                 self.standardAppearance = appearance
+                self.compactAppearance = appearance
                 self.scrollEdgeAppearance = appearance
+                
+                if #available(iOS 15.0, *) {
+                    let appearance = UINavigationBarAppearance()
+                    appearance.backgroundColor = barTintColor
+                    self.compactScrollEdgeAppearance = appearance
+                }
             } else {}
         }
     }
