@@ -259,3 +259,13 @@ func getImageWithColor(_ color: UIColor) -> UIImage {
     let image = UIGraphicsGetImageFromCurrentImageContext()
     return image ?? UIImage()
 }
+
+extension XYNavigationController {
+    
+    public override var tabBarItem: UITabBarItem! {
+        set{}
+        get{
+            self.viewControllers.first?.tabBarItem
+        }
+    }
+}
