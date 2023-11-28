@@ -255,11 +255,15 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-XYNav_Example/Pods-XYNav_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwingAnimation/SwingAnimation.framework",
 				"${BUILT_PRODUCTS_DIR}/XYNav/XYNav.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/SwingAnimation/ClockHandRotationKit.framework/ClockHandRotationKit",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwingAnimation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XYNav.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ClockHandRotationKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

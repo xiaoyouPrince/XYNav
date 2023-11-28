@@ -1,8 +1,10 @@
 use_frameworks!
 
-platform :ios, '9.0'
+platform :ios, '14.0'
 
 target 'XYNav_Example' do
   pod 'XYNav', :path => '../../'
+  
+  pod 'SwingAnimation', :path => '/Users/quxiaoyou/Desktop/SwingAnimation/'
   
 end

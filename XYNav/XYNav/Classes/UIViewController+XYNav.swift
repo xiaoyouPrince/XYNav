@@ -14,6 +14,7 @@ public extension UIViewController {
         static var popGestureRatio: String = "popGestureRatio"
         static var customNavBarClass: String = "customNavBarClass"
         static var customNavBackAction: String = "customNavBackAction"
+        static var titleAttributes: String = "titleAttributes"
     }
     
     // MARK: - 是否启用侧滑返回功能
@@ -161,6 +162,19 @@ public extension UIViewController {
     @objc
     func nav_setBarTintColor(color: UIColor){
         navigationController?.navigationBar.barTintColor = color
+    }
+    
+    @objc
+    var nav_titleTextAttributes: [NSAttributedString.Key : Any]? {
+        set{
+            objc_setAssociatedObject(self, &AssociatedKeys.titleAttributes, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        get{
+            guard let titleAttributes = objc_getAssociatedObject(self, &AssociatedKeys.titleAttributes) as? [NSAttributedString.Key : Any] else {
+                return nil
+            }
+            return titleAttributes
+        }
     }
     
 }

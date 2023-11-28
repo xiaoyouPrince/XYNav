@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import SwiftUI
+import SwingAnimation
 
 class ViewController: BaseViewController {
     
@@ -87,9 +88,12 @@ class ViewController: BaseViewController {
 //        self.tabBarController?.tabBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.xy_getColor(hex: 0x006aff)
         
+        // tabbar 透明
+        tabBarController?.tabBar.isTranslucent = true
+        
         if #available(iOS 15.0, *) {
             let app = UITabBarAppearance()
-            app.backgroundColor = .red
+            app.backgroundColor = .clear
             tabBarController?.tabBar.scrollEdgeAppearance = app
         } else {
             // Fallback on earlier versions
@@ -105,13 +109,20 @@ class ViewController: BaseViewController {
             "TableView 自定义 NavBar",
             "自定义转场动画",
             "底部 toolbar",
-            "底部 toolbar",
-            "底部 toolbar","底部 toolbar",
-            "底部 toolbar","底部 toolbar",
-            "底部 toolbar","底部 toolbar",
-            "底部 toolbar","底部 toolbar","底部 toolbar",
-            "底部 toolbar","底部 toolbar","底部 toolbar",
-            "底部 toolbar"
+            "SwiftUI - UIKit",
+            "placeholder",
+            "placeholder",
+            "placeholder",
+            "placeholder",
+            "placeholder",
+            "placeholder",
+            "placeholder",
+            "placeholder",
+            "placeholder",
+            "placeholder",
+            "placeholder",
+            "placeholder",
+            "placeholder"
             
         ]
         reloadUI()
@@ -124,7 +135,6 @@ class ViewController: BaseViewController {
         contVC.xy_isPopGestureEnable = false
         self.navigationController?.pushViewController(contVC, animated: true)
     }
-    
     
     @IBAction func push2(_ sender: Any) {
         
@@ -161,6 +171,38 @@ class ViewController: BaseViewController {
     
     @IBAction func getControllers(_ sender: Any) {
         print(self.navigationController?.viewControllers)
+    }
+    
+    
+    /// swiftUI 和 UIKit 混合使用
+    func swiftUITest() {
+        if #available(iOS 13.0, *) {
+            let ui =  UIHostingController(rootView: body)
+            ui.title = "UIKit Push SwiftUI"
+            nav_push(ui, animated: true)
+        } else {
+            // Fallback on earlier versions
+            print("此方法仅在 iOS 13 以上生效")
+        }
+    }
+    
+    @available(iOS 13.0, *)
+    @ViewBuilder
+    var body: some View {
+        VStack(alignment: .leading) {
+            Image(uiImage:.add )
+            
+            Text("探索图片加载过程")
+            Text("1. 主工程解压 zip 到沙盒")
+            Text("2. 主工程写入信息到 AppGroup")
+            Text("3. 拓展,读数据, 渲染")
+                .swingAnimation(duration: 2, direction: .horizontal, distance: 30)
+        }
+        .padding()
+        .onAppear {
+            print("is on Appear")
+        }
+        .swingAnimation(duration: 2, direction: .horizontal, distance: 30)
     }
 }
 
@@ -243,6 +285,10 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
             let detail = WebViewController()
             detail.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(detail, animated: true)
+        }
+        
+        if indexPath.row == 9 {
+            swiftUITest()
         }
     }
 }
