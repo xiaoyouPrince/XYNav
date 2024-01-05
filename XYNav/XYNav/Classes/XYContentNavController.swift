@@ -22,12 +22,16 @@ class XYContentNavController: UINavigationController {
         } else {}
         
         navigationBar.addSubview(statusBar)
+        
+        if let globalBarTintColor = XYNavigationController.navBarDefaultColor {
+            navigationBar.barTintColor = globalBarTintColor
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         #if DEBUG
-        if let vc = topViewController {
+        if let vc = topViewController, XYNavigationController.showClassNameInNavBar {
             statusBar.setMsg(with: vc)
         }
         #endif

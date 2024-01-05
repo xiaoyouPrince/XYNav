@@ -7,7 +7,7 @@
 
 import UIKit
 
-func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController) -> UIViewController {
+fileprivate func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController) -> UIViewController {
     if desVC is XYContentController { return desVC }
     
     let contVC = XYContentController()
@@ -23,7 +23,7 @@ func warpNewPushVC(_ desVC: UIViewController, _ superNav: XYNavigationController
     return contVC
 }
 
-func warpVC(_ desVC: UIViewController, _ superNav: XYNavigationController, isRootVC: Bool) -> UIViewController {
+fileprivate func warpVC(_ desVC: UIViewController, _ superNav: XYNavigationController, isRootVC: Bool) -> UIViewController {
     let newVC = warpNewPushVC(desVC, superNav)
     if isRootVC{
         return newVC
@@ -34,7 +34,7 @@ func warpVC(_ desVC: UIViewController, _ superNav: XYNavigationController, isRoo
     }
 }
 
-func unWarpNewPushVC(_ desVC: UIViewController, needResign: Bool) -> UIViewController {
+fileprivate func unWarpNewPushVC(_ desVC: UIViewController, needResign: Bool) -> UIViewController {
     if desVC is XYContentController, let contentVC = desVC as? XYContentController {
         let resultVC = contentVC.contentVc
         if needResign {
@@ -47,8 +47,8 @@ func unWarpNewPushVC(_ desVC: UIViewController, needResign: Bool) -> UIViewContr
     return desVC
 }
 
-var backImage: UIImage? = nil
-func getBackImage() -> UIImage {
+fileprivate var backImage: UIImage? = nil
+fileprivate func getBackImage() -> UIImage {
     
     if backImage != nil {
         return backImage!
@@ -71,14 +71,13 @@ func getBackImage() -> UIImage {
     return image ?? UIImage()
 }
 
-open
-class XYNavigationController: UINavigationController {
+public class XYNavigationController: UINavigationController {
     
-    // MARK: - open vars
+    // MARK: - public vars
     var panGesture: UIPanGestureRecognizer?
     
     // MARK: - life circle
-    open override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         super.interactivePopGestureRecognizer?.isEnabled = false
@@ -109,13 +108,13 @@ class XYNavigationController: UINavigationController {
     }
     
     // MARK: - push & pop
-    open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         var currentVCs = viewControllers
         currentVCs.append(viewController)
         setViewControllers(currentVCs, animated: animated)
     }
     
-    open override func popViewController(animated: Bool) -> UIViewController? {
+    public override func popViewController(animated: Bool) -> UIViewController? {
         let popVC = super.popViewController(animated: animated)
         if let resultVC = popVC as? XYContentController {
             return unWarpNewPushVC(resultVC, needResign: false)
@@ -123,7 +122,7 @@ class XYNavigationController: UINavigationController {
         return nil
     }
     
-    open override func popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
+    public override func popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
         
         if self.viewControllers.contains(viewController) == true { // 在自己vc栈中执行
             let oldSelfViewControllers = self.viewControllers
@@ -153,7 +152,7 @@ class XYNavigationController: UINavigationController {
         return nil
     }
     
-    open override func popToRootViewController(animated: Bool) -> [UIViewController]? {
+    public override func popToRootViewController(animated: Bool) -> [UIViewController]? {
         if self.viewControllers.isEmpty {
             return nil
         }
@@ -171,7 +170,7 @@ class XYNavigationController: UINavigationController {
         }
         return vc
     }
-    open override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
+    public override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
         var warpedVCs: [UIViewController] = []
         let currentVCs = super.viewControllers
         for vc in viewControllers {
@@ -181,7 +180,7 @@ class XYNavigationController: UINavigationController {
         super.setViewControllers(warpedVCs, animated: animated)
     }
     
-    open override var viewControllers: [UIViewController]{
+    public override var viewControllers: [UIViewController]{
         set{
             var warpedVCs: [UIViewController] = []
             let currentVCs = super.viewControllers
@@ -202,7 +201,7 @@ class XYNavigationController: UINavigationController {
     }
     
     // MARK: - visibleViewController/topViewController
-    open override var visibleViewController: UIViewController?{
+    public override var visibleViewController: UIViewController?{
         let visibelVC = super.visibleViewController
         if let contentVC = visibelVC as? XYContentController{
             return contentVC.contentVc
@@ -211,19 +210,11 @@ class XYNavigationController: UINavigationController {
         }
     }
     
-    open override var preferredStatusBarStyle: UIStatusBarStyle {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         if let vc = topViewController {
             return vc.preferredStatusBarStyle
         }
         return .default
-    }
-}
-
-extension XYNavigationController {
-    
-    static public func setDefaultBackImage(_ image: UIImage) {
-        let image = image.withRenderingMode(.alwaysOriginal)
-        backImage = image
     }
     
     /// XYNav 自定义返回 pop 事件
@@ -231,6 +222,54 @@ extension XYNavigationController {
     @objc func popByDefaultAction() -> UIViewController? {
         return self.popViewController(animated: true)
     }
+}
+
+// MARK: -  拓展一些用户可全局调整的方法
+extension XYNavigationController {
+    
+    static var showClassNameInNavBar: Bool = false
+    static var navBarDefaultColor: UIColor?
+    
+    /// 设置全局返回按钮图标, 默认是 左箭头 <
+    /// - Parameter image: 自定义图片
+    @objc static public func setDefaultBackImage(_ image: UIImage) {
+        let image = image.withRenderingMode(.alwaysOriginal)
+        backImage = image
+    }
+    
+    /// 是否在导航栏展示当前 VC 的类名称
+    /// - Parameter show: 默认不展示
+    /// - Note: 这是一个 DEBUG 环境下特性,  即使设置为展示, 也只在 DEBUG 环境下生效
+    @objc static public func showClassNameByDefault(_ show: Bool = false) {
+        showClassNameInNavBar = show
+    }
+    
+    /// 设置全局的导航栏颜色
+    /// - Parameter barColor: 导航栏本身颜色
+    /// - Note: 此属性设置之后会影响导航栏透明效果, 导航栏会变味不透明
+    @objc static public func setDefaultBarColor(_ barColor: UIColor) {
+        navBarDefaultColor = barColor
+    }
+    
+    /// 对全局导航栏设置几个全局默认效果
+    /// - Parameters:
+    ///   - backImage: 导航栏返回按钮图标, 默认是 <
+    ///   - showClassNameInNavbar: 是否在导航栏展示当前类的名称
+    ///   - navBarTintColor: 导航栏的全局背景色
+    @objc static public func nav_setGlobal(backBtnImage: UIImage? = nil,
+                                           showClassNameInNavbar: Bool = false,
+                                           navBarTintColor: UIColor? = nil) {
+        if let backBtnImage = backBtnImage {
+            backImage = backBtnImage
+        }
+        
+        showClassNameByDefault(showClassNameInNavbar)
+        
+        if let navBarTintColor = navBarTintColor {
+            setDefaultBarColor(navBarTintColor)
+        }
+    }
+    
 }
 
 extension XYNavigationController : UIGestureRecognizerDelegate{
@@ -249,15 +288,6 @@ extension XYNavigationController : UIGestureRecognizerDelegate{
         
         return false
     }
-}
-
-func getImageWithColor(_ color: UIColor) -> UIImage {
-    UIGraphicsBeginImageContextWithOptions(CGSize(width: 1, height: 1), false, 0)
-    let ctx = UIGraphicsGetCurrentContext()
-    ctx?.setFillColor(color.cgColor)
-    ctx?.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    return image ?? UIImage()
 }
 
 extension XYNavigationController {

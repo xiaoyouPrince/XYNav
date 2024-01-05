@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        XYNavigationController.setDefaultBackImage(UIImage(named: "ic_risk_tip_close")!)
         XYNavigationController.setDefaultBackImage(UIImage(named: "icon_back")!)
+        XYNavigationController.nav_setGlobal(showClassNameInNavbar: true, navBarTintColor: .systemPink)
         return true
         
 //        UINavigationBar.appearance().compactScrollEdgeAppearance = UINavigationBarAppearance()
