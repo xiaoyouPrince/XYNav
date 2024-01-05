@@ -5,6 +5,6 @@ platform :ios, '14.0'
 target 'XYNav_Example' do
   pod 'XYNav', :path => '../../'
   
-  pod 'SwingAnimation', :path => '/Users/quxiaoyou/Desktop/SwingAnimation/'
+#  pod 'SwingAnimation', :path => '/Users/quxiaoyou/Desktop/SwingAnimation/'
   
 end

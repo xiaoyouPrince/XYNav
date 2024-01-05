@@ -10,11 +10,11 @@ import Foundation
 public extension UIViewController {
     
     fileprivate struct AssociatedKeys {
-        static var isPopGestureEnable: String = "isPopGestureEnable"
-        static var popGestureRatio: String = "popGestureRatio"
-        static var customNavBarClass: String = "customNavBarClass"
-        static var customNavBackAction: String = "customNavBackAction"
-        static var titleAttributes: String = "titleAttributes"
+        static var isPopGestureEnable: Void? /*String = "isPopGestureEnable"*/
+        static var popGestureRatio: Void? /*String = "popGestureRatio"*/
+        static var customNavBarClass: Void? /*String = "customNavBarClass"*/
+        static var customNavBackAction: Void? /*String = "customNavBackAction"*/
+        static var titleAttributes: Void? /*String = "titleAttributes"*/
     }
     
     // MARK: - 是否启用侧滑返回功能
@@ -25,7 +25,11 @@ public extension UIViewController {
             objc_setAssociatedObject(self, &AssociatedKeys.isPopGestureEnable, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         get{
-            guard let isPopGestureEnable = objc_getAssociatedObject(self, &AssociatedKeys.isPopGestureEnable) as? Bool else {
+            let isPopGestureEnable = withUnsafePointer(to: &AssociatedKeys.isPopGestureEnable) {
+                return objc_getAssociatedObject(self, $0)
+            }
+            
+            guard let isPopGestureEnable = isPopGestureEnable as? Bool else {
                 return true
             }
             return isPopGestureEnable
@@ -39,7 +43,12 @@ public extension UIViewController {
             objc_setAssociatedObject(self, &AssociatedKeys.popGestureRatio, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         get{
-            guard let popGestureRatio = objc_getAssociatedObject(self, &AssociatedKeys.popGestureRatio) as? CGFloat else {
+            
+            let popGestureRatio = withUnsafePointer(to: &AssociatedKeys.popGestureRatio) {
+                return objc_getAssociatedObject(self, $0)
+            }
+            
+            guard let popGestureRatio = popGestureRatio as? CGFloat else {
                 return 0.1
             }
             return popGestureRatio
@@ -55,7 +64,10 @@ public extension UIViewController {
             objc_setAssociatedObject(self, &AssociatedKeys.customNavBarClass, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         get{
-            guard let customNavBarClass = objc_getAssociatedObject(self, &AssociatedKeys.customNavBarClass) as? AnyClass else {
+            let customNavBarClass = withUnsafePointer(to: &AssociatedKeys.customNavBarClass) {
+                return objc_getAssociatedObject(self, $0)
+            }
+            guard let customNavBarClass = customNavBarClass as? AnyClass else {
                 return XYNavBar.self
             }
             return customNavBarClass
@@ -127,7 +139,10 @@ public extension UIViewController {
             objc_setAssociatedObject(self, &AssociatedKeys.customNavBackAction, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         get{
-            guard let customNavBackAction = objc_getAssociatedObject(self, &AssociatedKeys.customNavBackAction) as? ()->Bool else {
+            let customNavBackAction = withUnsafePointer(to: &AssociatedKeys.customNavBackAction) {
+                return objc_getAssociatedObject(self, $0)
+            }
+            guard let customNavBackAction = customNavBackAction as? ()->Bool else {
                 return {true} // default is ture
             }
             return customNavBackAction
@@ -170,7 +185,10 @@ public extension UIViewController {
             objc_setAssociatedObject(self, &AssociatedKeys.titleAttributes, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         get{
-            guard let titleAttributes = objc_getAssociatedObject(self, &AssociatedKeys.titleAttributes) as? [NSAttributedString.Key : Any] else {
+            let titleAttributes = withUnsafePointer(to: &AssociatedKeys.titleAttributes) {
+                return objc_getAssociatedObject(self, $0)
+            }
+            guard let titleAttributes = titleAttributes as? [NSAttributedString.Key : Any] else {
                 return nil
             }
             return titleAttributes

@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftUI
-import SwingAnimation
 
 class ViewController: BaseViewController {
     
@@ -196,13 +195,13 @@ class ViewController: BaseViewController {
             Text("1. 主工程解压 zip 到沙盒")
             Text("2. 主工程写入信息到 AppGroup")
             Text("3. 拓展,读数据, 渲染")
-                .swingAnimation(duration: 2, direction: .horizontal, distance: 30)
+//                .swingAnimation(duration: 2, direction: .horizontal, distance: 30)
         }
         .padding()
         .onAppear {
             print("is on Appear")
         }
-        .swingAnimation(duration: 2, direction: .horizontal, distance: 30)
+//        .swingAnimation(duration: 2, direction: .horizontal, distance: 30)
     }
 }
 
