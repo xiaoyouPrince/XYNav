@@ -23,12 +23,14 @@ import UIKit
 }
 
 @available(iOS 13.0, *)
-@objc public class XYTabbarController: UITabBarController {
+@objc public class XYTabBarController: UITabBarController {
     
     /// UI mode, default is fellow system
     private var uiStyle: UIUserInterfaceStyle = .unspecified
     /// 选中 Item.tintColor
     private var selectedItemTintColor: UIColor?
+    /// 非选中 Item.tintColor
+    private var unselectedItemTintColor: UIColor?
     /// tabarBgColor
     private var tabbarBgColor: UIColor?
     /// tabbarBgImage
@@ -46,16 +48,20 @@ import UIKit
     /// 指定初始化方法
     /// - Parameters:
     ///   - uiStyle: 支持的mode, light / dark,  default is fellow the system
-    ///   - barTintColor: 选中 item.title 的颜色
-    ///   - barBgColor: tabBar 的背景色,  default is nil, default is fellow the system
-    ///   - barBgImage: tabBar 的背景图片,  default is nil, default is fellow the system
+    ///   - selectedItemTintColor: 选中 item.title 的颜色
+    ///   - unselectedItemTintColor: 非选中 item.title 的颜色
+    ///   - tabbarBgColor: tabBar 的背景色,  default is nil, default is fellow the system
+    ///   - tabbarBgImage: tabBar 的背景图片,  default is nil, default is fellow the system
+    ///   - tabbarContentCallbak: 设置 tabbar 内容, 返回 [XYTabbarContent] 即可
     @objc public init(with uiStyle: UIUserInterfaceStyle = .unspecified,
                       selectedItemTintColor: UIColor? = nil,
+                      unselectedItemTintColor: UIColor? = nil,
                       tabbarBgColor: UIColor? = nil,
                       tabbarBgImage: UIImage? = nil,
                       tabbarContentCallbak: @escaping () -> [XYTabbarContent]) {
         self.uiStyle = uiStyle
         self.selectedItemTintColor = selectedItemTintColor
+        self.unselectedItemTintColor = unselectedItemTintColor
         self.tabbarBgColor = tabbarBgColor
         self.tabbarBgImage = tabbarBgImage
         self.tabbarContentCallbak = tabbarContentCallbak
@@ -71,7 +77,8 @@ import UIKit
     }
     
     private func setTabbar() {
-        self.tabBar.tintColor = self.selectedItemTintColor
+        self.tabBar.tintColor = selectedItemTintColor
+        self.tabBar.unselectedItemTintColor = unselectedItemTintColor
         self.tabBar.barTintColor = tabbarBgColor
         self.tabBar.isTranslucent = true;
         
@@ -79,11 +86,21 @@ import UIKit
         let tabarAppearnce = UITabBarAppearance()
         tabarAppearnce.backgroundColor = tabbarBgColor
         tabarAppearnce.backgroundImage = tabbarBgImage
+        
+        if let titleColorSelected = selectedItemTintColor, let titleColorNormal = unselectedItemTintColor {
+            let normalDict: [NSAttributedString.Key : Any] = [.paragraphStyle: NSParagraphStyle.default, .foregroundColor: titleColorNormal]
+            let selectedDict: [NSAttributedString.Key : Any] = [.paragraphStyle: NSParagraphStyle.default, .foregroundColor: titleColorSelected]
+            tabarAppearnce.stackedLayoutAppearance.normal.titleTextAttributes = normalDict
+            tabarAppearnce.compactInlineLayoutAppearance.normal.titleTextAttributes = normalDict
+            tabarAppearnce.inlineLayoutAppearance.normal.titleTextAttributes = normalDict
+            tabarAppearnce.stackedLayoutAppearance.selected.titleTextAttributes = selectedDict
+            tabarAppearnce.compactInlineLayoutAppearance.selected.titleTextAttributes = selectedDict
+            tabarAppearnce.inlineLayoutAppearance.selected.titleTextAttributes = selectedDict
+        }
+        
         self.tabBar.standardAppearance = tabarAppearnce
         if #available(iOS 15.0, *) {
             self.tabBar.scrollEdgeAppearance = tabarAppearnce
-        } else {
-            // Fallback on earlier versions
         }
         //}
     }

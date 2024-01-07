@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 //        XYNavigationController.setDefaultBackImage(UIImage(named: "ic_risk_tip_close")!)
-        XYNavigationController.setDefaultBackImage(UIImage(named: "icon_back")!)
+//        XYNavigationController.setDefaultBackImage(UIImage(named: "icon_back")!)
         XYNavigationController.nav_setGlobal(showClassNameInNavbar: true, navBarTintColor: .systemPink)
         return true
         
