@@ -119,7 +119,7 @@ public extension UIViewController {
             if subviews.isEmpty == true { return }
             
             for subview in subviews {
-                if subview.bounds.height <= 1 {
+                if subview.bounds.height <= 1, subview is UIImageView {
                     subview.isHidden = hide
                     continue
                 }
