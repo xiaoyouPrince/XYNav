@@ -10,6 +10,40 @@ import UIKit
 class GreenViewController: BaseViewController {
     
     var hideNavBar = false
+    
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        if #available(iOS 13.0, *) {
+//            return UIStatusBarStyle.darkContent
+//        } else {
+//            // Fallback on earlier versions
+//            return UIStatusBarStyle.default
+//        }
+//    }
+//    
+    override var prefersStatusBarHidden: Bool {
+        true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //        UIApplication.shared.setStatusBarHidden(true, with: .fade)
+//        UIApplication.shared.isStatusBarHidden = true
+        
+        if #available(iOS 13.0, *) {
+            let scenes = UIApplication.shared.connectedScenes
+            for scene in scenes {
+                if let wins = scene as? UIWindowScene {
+                    let frame = wins.statusBarManager?.statusBarFrame ?? .zero
+                    let hidden = wins.statusBarManager?.isStatusBarHidden ?? true
+                    let style = wins.statusBarManager?.statusBarStyle ?? .lightContent
+                    print("\(frame)\n\(hidden)\n\(style)")
+                }
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

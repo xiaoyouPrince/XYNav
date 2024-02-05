@@ -79,6 +79,29 @@ class ViewController: BaseViewController {
         self.title = "RootVC - \(index)"
         self.view.addSubview(tableView)
     }
+    
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return UIStatusBarStyle.darkContent
+        } else {
+            // Fallback on earlier versions
+            return UIStatusBarStyle.default
+        }
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        UIApplication.shared.setStatusBarHidden(true, with: .fade)
+        UIApplication.shared.isStatusBarHidden = true
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // navigationBar 需要在此函数中才能被加载到，
@@ -86,6 +109,8 @@ class ViewController: BaseViewController {
         self.navigationController?.navigationBar.isTranslucent = false
 //        self.tabBarController?.tabBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor.xy_getColor(hex: 0x006aff)
+        
+        
         
         // tabbar 透明
         tabBarController?.tabBar.isTranslucent = true
