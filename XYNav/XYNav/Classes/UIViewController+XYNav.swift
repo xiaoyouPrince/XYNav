@@ -179,6 +179,14 @@ public extension UIViewController {
         navigationController?.navigationBar.barTintColor = color
     }
     
+    /// 导航栏设置 isTransparent
+    /// - NOTE: 此函数仅在 viewWillAppear 之前调用生效,  view 已经展示之后不起作用
+    /// - Parameter isTransparent: 是否支持透明效果
+    @objc
+    func nav_setBarTransparent(isTransparent: Bool){
+        navigationController?.navigationBar.isTranslucent = isTransparent
+    }
+    
     @objc
     var nav_titleTextAttributes: [NSAttributedString.Key : Any]? {
         set{
