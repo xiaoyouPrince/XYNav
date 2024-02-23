@@ -75,6 +75,7 @@ public class XYNavigationController: UINavigationController {
     
     // MARK: - public vars
     var panGesture: UIPanGestureRecognizer?
+    private var tempViewControllers: [UIViewController] = []
     
     // MARK: - life circle
     public override func viewDidLoad() {
@@ -84,6 +85,7 @@ public class XYNavigationController: UINavigationController {
         panGesture = UIPanGestureRecognizer(target: super.interactivePopGestureRecognizer?.delegate, action: Selector(("handleNavigationTransition:")))
         panGesture!.delegate = self
         view.addGestureRecognizer(panGesture!)
+        self.delegate = self
         
         navigationBar.isHidden = true
     }
@@ -281,6 +283,7 @@ extension XYNavigationController : UIGestureRecognizerDelegate{
             
             let point = gestureRecognizer.location(in: gestureRecognizer.view)
             if point.x < (UIScreen.main.bounds.width * self.viewControllers.last!.xy_popGestureRatio) && self.viewControllers.last!.xy_isPopGestureEnable {
+                self.tempViewControllers = viewControllers
                 return true
             }
             return false
@@ -296,6 +299,25 @@ extension XYNavigationController {
         set{}
         get{
             self.viewControllers.first?.tabBarItem
+        }
+    }
+}
+
+extension XYNavigationController: UINavigationControllerDelegate {
+    public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if #available(iOS 10.0, *) {
+            let beforeControllers = self.tempViewControllers
+            viewController.transitionCoordinator?.notifyWhenInteractionChanges({ context in
+                if context.isCancelled { return }
+                let afterControllers = self.viewControllers
+                if beforeControllers.count > afterControllers.count, let poped = beforeControllers.last { // pop last
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: NSNotification.Name("XYNavGesturePopNotification"), object: poped)
+                    }
+                }
+            })
+        } else {
+            // Fallback on earlier versions
         }
     }
 }
