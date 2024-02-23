@@ -76,6 +76,8 @@ public class XYNavigationController: UINavigationController {
     // MARK: - public vars
     var panGesture: UIPanGestureRecognizer?
     private var tempViewControllers: [UIViewController] = []
+    public typealias PanGesturePopCallback = (_ popedViewController: UIViewController)->()
+    private static var panGestureEndCallbacks: [PanGesturePopCallback] = []
     
     // MARK: - life circle
     public override func viewDidLoad() {
@@ -271,6 +273,12 @@ extension XYNavigationController {
             setDefaultBarColor(navBarTintColor)
         }
     }
+    /// 添加全局侧滑返回手势结束的监听
+    /// - Parameter barColor: 导航栏本身颜色
+    /// - Note: 此属性设置之后会影响导航栏透明效果, 导航栏会变味不透明
+    @objc static public func addPanGestureEndCallback(callback: @escaping PanGesturePopCallback) {
+        panGestureEndCallbacks.append(callback)
+    }
     
 }
 
@@ -312,7 +320,8 @@ extension XYNavigationController: UINavigationControllerDelegate {
                 let afterControllers = self.viewControllers
                 if beforeControllers.count > afterControllers.count, let poped = beforeControllers.last { // pop last
                     DispatchQueue.main.async {
-                        NotificationCenter.default.post(name: NSNotification.Name("XYNavGesturePopNotification"), object: poped)
+                        NotificationCenter.default.post(name: NSNotification.Name.XYNavGesturePopNotification, object: poped)
+                        XYNavigationController.panGestureEndCallbacks.forEach({$0(poped)})
                     }
                 }
             })
@@ -320,4 +329,8 @@ extension XYNavigationController: UINavigationControllerDelegate {
             // Fallback on earlier versions
         }
     }
+}
+
+extension NSNotification.Name {
+    public static let XYNavGesturePopNotification = NSNotification.Name("XYNavGesturePopNotification")
 }
