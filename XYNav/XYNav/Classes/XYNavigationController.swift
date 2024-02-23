@@ -75,8 +75,6 @@ public class XYNavigationController: UINavigationController {
     
     // MARK: - public vars
     var panGesture: UIPanGestureRecognizer?
-    private var panGesture_: UIPanGestureRecognizer?
-    private var panGestureEndCallbacks: [()->()] = []
     
     // MARK: - life circle
     public override func viewDidLoad() {
@@ -84,11 +82,8 @@ public class XYNavigationController: UINavigationController {
         
         super.interactivePopGestureRecognizer?.isEnabled = false
         panGesture = UIPanGestureRecognizer(target: super.interactivePopGestureRecognizer?.delegate, action: Selector(("handleNavigationTransition:")))
-        panGesture_ = UIPanGestureRecognizer(target: self, action: #selector(handlePan(pan:)))
         panGesture!.delegate = self
-        panGesture_!.delegate = self
         view.addGestureRecognizer(panGesture!)
-        view.addGestureRecognizer(panGesture_!)
         
         navigationBar.isHidden = true
     }
@@ -275,18 +270,11 @@ extension XYNavigationController {
         }
     }
     
-    /// 添加全局侧滑返回手势结束的监听
-    /// - Parameter barColor: 导航栏本身颜色
-    /// - Note: 此属性设置之后会影响导航栏透明效果, 导航栏会变味不透明
-    @objc public func addPanGestureEndCallback(callback: @escaping () -> ()) {
-        panGestureEndCallbacks.append(callback)
-    }
-    
 }
 
 extension XYNavigationController : UIGestureRecognizerDelegate{
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer == self.panGesture || gestureRecognizer == self.panGesture_ {
+        if gestureRecognizer == self.panGesture {
             if self.viewControllers.count == 1 {
                 return false
             }
@@ -299,16 +287,6 @@ extension XYNavigationController : UIGestureRecognizerDelegate{
         }
         
         return false
-    }
-    
-    @objc private func handlePan(pan: UIPanGestureRecognizer) {
-        
-        switch pan.state {
-        case .cancelled, .ended:
-            panGestureEndCallbacks.forEach({$0()})
-        default:
-            break;
-        }
     }
 }
 
