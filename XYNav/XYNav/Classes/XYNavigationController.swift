@@ -76,8 +76,11 @@ public class XYNavigationController: UINavigationController {
     // MARK: - public vars
     var panGesture: UIPanGestureRecognizer?
     private var tempViewControllers: [UIViewController] = []
+    private var recentInteractionPopedViewController: UIViewController?
     public typealias PanGesturePopCallback = (_ popedViewController: UIViewController)->()
+    public typealias GlobalPopCallback = (_ popedViewControllers: [UIViewController], _ isGesture: Bool)->()
     private static var panGestureEndCallbacks: [PanGesturePopCallback] = []
+    private static var popViewControllerCallbacks: [GlobalPopCallback] = []
     
     // MARK: - life circle
     public override func viewDidLoad() {
@@ -119,6 +122,7 @@ public class XYNavigationController: UINavigationController {
     }
     
     public override func popViewController(animated: Bool) -> UIViewController? {
+        self.tempViewControllers = viewControllers
         let popVC = super.popViewController(animated: animated)
         if let resultVC = popVC as? XYContentController {
             return unWarpNewPushVC(resultVC, needResign: false)
@@ -127,7 +131,7 @@ public class XYNavigationController: UINavigationController {
     }
     
     public override func popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
-        
+        self.tempViewControllers = viewControllers
         if self.viewControllers.contains(viewController) == true { // 在自己vc栈中执行
             let oldSelfViewControllers = self.viewControllers
             
@@ -273,11 +277,17 @@ extension XYNavigationController {
             setDefaultBarColor(navBarTintColor)
         }
     }
+    
     /// 添加全局侧滑返回手势结束的监听
-    /// - Parameter barColor: 导航栏本身颜色
-    /// - Note: 此属性设置之后会影响导航栏透明效果, 导航栏会变味不透明
+    /// - Parameter callback: 回调, 参数为当前被侧滑返回的 viewController
     @objc static public func addPanGestureEndCallback(callback: @escaping PanGesturePopCallback) {
         panGestureEndCallbacks.append(callback)
+    }
+    
+    /// 添加全局 pop 监听, 当有 viewController 被 pop 之后回调, 触发条件包含点击返回按钮 & 侧滑手势返回
+    /// - Parameter callback: 回调, 参数为当前被 pop 的 viewController
+    @objc static public func addPopCallback(callback: @escaping GlobalPopCallback) {
+        popViewControllerCallbacks.append(callback)
     }
     
 }
@@ -322,12 +332,39 @@ extension XYNavigationController: UINavigationControllerDelegate {
                     DispatchQueue.main.async {
                         NotificationCenter.default.post(name: NSNotification.Name.XYNavGesturePopNotification, object: poped)
                         XYNavigationController.panGestureEndCallbacks.forEach({$0(poped)})
+                        
+                        self.recentInteractionPopedViewController = poped
+                        XYNavigationController.popViewControllerCallbacks.forEach({$0([poped], true)})
                     }
                 }
             })
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        
+        let beforeControllers = self.tempViewControllers
+        let afterControllers = self.viewControllers
+        if beforeControllers.count > afterControllers.count, let poped_last = beforeControllers.last { // pop last
+            let popdCount = beforeControllers.count - afterControllers.count
+            if popdCount == 1, let rctVC = recentInteractionPopedViewController {
+                DispatchQueue.main.async {
+                    if rctVC != poped_last {
+                        XYNavigationController.popViewControllerCallbacks.forEach({$0([poped_last], false)})
+                    } else {
+                        self.recentInteractionPopedViewController = nil
+                    }
+                }
+            } else {
+                let popedControllers: Array<UIViewController> = .init(beforeControllers.dropFirst(afterControllers.count))
+                DispatchQueue.main.async {
+                    XYNavigationController.popViewControllerCallbacks.forEach({$0(popedControllers, false)})
+                }
+            }
+        }
+        self.tempViewControllers = []
     }
 }
 
