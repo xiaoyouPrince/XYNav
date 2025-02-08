@@ -80,7 +80,9 @@ class GreenViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.barTintColor = .green
+        nav_titleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 35), .foregroundColor: UIColor.red]
+        nav_setBarTintColor(color: .green)
+
     }
     
     @objc

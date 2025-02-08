@@ -29,8 +29,17 @@ class ScrollViewController: BaseViewController {
         if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.backgroundColor = UIColor.yellow
-            self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+//            self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
             self.navigationController?.navigationBar.prefersLargeTitles = true
+            
+            appearance.largeTitleTextAttributes = [
+                .foregroundColor: UIColor.purple,   // 颜色
+                .font: UIFont.boldSystemFont(ofSize: 34) // 字体
+            ]
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            self.navigationController?.navigationBar.standardAppearance = appearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
         } else {}
         
         let scrollView = UIScrollView(frame: view.bounds)

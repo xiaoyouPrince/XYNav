@@ -176,7 +176,12 @@ public extension UIViewController {
     /// - Parameter color: 用户设定的颜色
     @objc
     func nav_setBarTintColor(color: UIColor){
-        navigationController?.navigationBar.barTintColor = color
+        if #available(iOS 13.0, *) {
+            navigationController?.navigationBar.standardAppearance.backgroundColor = color
+            navigationController?.navigationBar.scrollEdgeAppearance?.backgroundColor = color
+        } else {
+            navigationController?.navigationBar.barTintColor = color
+        }
     }
     
     /// 导航栏设置 isTransparent
@@ -187,10 +192,28 @@ public extension UIViewController {
         navigationController?.navigationBar.isTranslucent = isTransparent
     }
     
+    /// 设置导航栏的 Title text attributes. If the font or color are unspecified, appropriate defaults are supplied.
     @objc
     var nav_titleTextAttributes: [NSAttributedString.Key : Any]? {
         set{
             objc_setAssociatedObject(self, &AssociatedKeys.titleAttributes, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            
+            if #available(iOS 13.0, *) {
+                var appearance = UINavigationBarAppearance()
+                if let appearance_default = navigationController?.navigationBar.standardAppearance {
+                    appearance = appearance_default
+                }
+                
+                appearance.titleTextAttributes = [
+                    .foregroundColor: newValue?[NSAttributedString.Key.foregroundColor] ?? UIColor.black,
+                    .font: newValue?[NSAttributedString.Key.font] ?? UIFont.boldSystemFont(ofSize: 17)
+                ]
+                self.navigationController?.navigationBar.standardAppearance = appearance
+                self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+                
+            } else {
+                self.navigationController?.navigationBar.titleTextAttributes = newValue
+            }
         }
         get{
             let titleAttributes = withUnsafePointer(to: &AssociatedKeys.titleAttributes) {

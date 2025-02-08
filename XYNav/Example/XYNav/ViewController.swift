@@ -97,8 +97,12 @@ class ViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        
+        print("statusBar----\(UIApplication.shared.statusBarFrame.height)")
+        print("navBar----\(String(describing: navigationController?.navigationBar.bounds.height))")
+        
 //        UIApplication.shared.setStatusBarHidden(true, with: .fade)
-        UIApplication.shared.isStatusBarHidden = true
+//        UIApplication.shared.isStatusBarHidden = true
     }
     
     

@@ -17,11 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let app = UINavigationBar.appearance()
+        app.titleTextAttributes = [.foregroundColor: UIColor.yellow]
+        
         
 //        XYNavigationController.setDefaultBackImage(UIImage(named: "ic_risk_tip_close")!)
 //        XYNavigationController.setDefaultBackImage(UIImage(named: "icon_back")!)
         XYNavigationController.nav_setGlobal(showClassNameInNavbar: true, navBarTintColor: .systemPink)
-        return true
         
 //        UINavigationBar.appearance().compactScrollEdgeAppearance = UINavigationBarAppearance()
         
@@ -35,7 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 直接通过
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
         let nav = XYNavigationController(rootViewController: vc)
-        window?.rootViewController = nav
+        let tabbar = UITabBarController()
+        tabbar.viewControllers = [nav]
+        window?.rootViewController = tabbar
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            print( tabbar.tabBar.bounds)
+        })
         
         // MARK:  - 创建方式2，直接从 stroyBoard 中加载 navVC。此方式甚至无需导入头文件
         // UIStoryboard 直接创建，直接使用 sb 亦可
