@@ -184,6 +184,14 @@ public extension UIViewController {
         }
     }
     
+    /// 设置导航栏整体背景颜色
+    /// - NOTE: 此方法同 nav_setBarTintColor, 命名语义上更直观
+    /// - Parameter color: 用户设定的颜色
+    @objc
+    func nav_setBarBackgroundColor(color: UIColor){
+        nav_setBarTintColor(color: color)
+    }
+    
     /// 导航栏设置 isTransparent
     /// - NOTE: 此函数仅在 viewWillAppear 之前调用生效,  view 已经展示之后不起作用
     /// - Parameter isTransparent: 是否支持透明效果

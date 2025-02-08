@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XYNav'
-  s.version          = '1.3.4'
+  s.version          = '1.3.5'
   s.summary          = 'XYNav 是一个提供更多拓展性的 iOS 系统导航'
 
 # This description is used to generate tags and improve search results.
