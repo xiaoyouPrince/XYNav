@@ -11,6 +11,7 @@ public extension UIViewController {
     
     fileprivate struct AssociatedKeys {
         static var isPopGestureEnable: Void? /*String = "isPopGestureEnable"*/
+        static var isContentPopGestureEnable: Void? /*String = "isContentPopGestureEnable"*/
         static var popGestureRatio: Void? /*String = "popGestureRatio"*/
         static var customNavBarClass: Void? /*String = "customNavBarClass"*/
         static var customNavBackAction: Void? /*String = "customNavBackAction"*/
@@ -19,6 +20,8 @@ public extension UIViewController {
     
     // MARK: - 是否启用侧滑返回功能
     /// 默认支持侧滑返回功能
+    /// - 此属性用于系统的边缘侧滑返回开关
+    /// - 如果系统在 iOS 26 以上, 系统新增了全屏侧滑返回手势, 需要通过 xy_isContentPopGestureEnable 管理
     @objc
     var xy_isPopGestureEnable: Bool {
         set{
@@ -36,7 +39,28 @@ public extension UIViewController {
         }
     }
     
+    /// 默认支持全屏策划侧滑返回功能 - 仅 iOS 26 以上生效
+    /// - 此属性用于 iOS 26 以上的系统全屏侧滑返回能力的禁用与开启
+    @objc
+    var xy_isContentPopGestureEnable: Bool {
+        set{
+            objc_setAssociatedObject(self, &AssociatedKeys.isContentPopGestureEnable, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        get{
+            let isPopGestureEnable = withUnsafePointer(to: &AssociatedKeys.isContentPopGestureEnable) {
+                return objc_getAssociatedObject(self, $0)
+            }
+            
+            guard let isPopGestureEnable = isPopGestureEnable as? Bool else {
+                return true
+            }
+            return isPopGestureEnable
+        }
+    }
+    
     /// 支持侧滑返回的比例 0~1
+    ///  - 此属性用于 iOS 26 以下的全屏返回比例控制, iOS 26 以上直接用系统的全屏侧滑返回手势即可
+    ///  - iOS 26 以上此属性依旧生效, 可以设置此值, 闭关系统全屏侧滑返回手势的方式使用
     @objc
     var xy_popGestureRatio: CGFloat {
         set{

@@ -74,7 +74,8 @@ fileprivate func getBackImage() -> UIImage {
 public class XYNavigationController: UINavigationController {
     
     // MARK: - public vars
-    var panGesture: UIPanGestureRecognizer?
+    var panGesture: UIPanGestureRecognizer? // 系统的边缘侧滑返回手势
+    var contentPanGesture: UIPanGestureRecognizer? // 系统的全屏侧滑返回手势(OS26+)
     private var tempViewControllers: [UIViewController] = []
     private var recentInteractionPopedViewController: UIViewController?
     public typealias PanGesturePopCallback = (_ popedViewController: UIViewController)->()
@@ -90,6 +91,14 @@ public class XYNavigationController: UINavigationController {
         panGesture = UIPanGestureRecognizer(target: super.interactivePopGestureRecognizer?.delegate, action: Selector(("handleNavigationTransition:")))
         panGesture!.delegate = self
         view.addGestureRecognizer(panGesture!)
+        if #available(iOS 26.0, *) {
+            super.interactiveContentPopGestureRecognizer?.isEnabled = false
+            let delegate26 = super.interactiveContentPopGestureRecognizer?.delegate
+            contentPanGesture = UIPanGestureRecognizer(target: delegate26, action: Selector(("handleNavigationTransition:")))
+            contentPanGesture!.delegate = self
+            view.addGestureRecognizer(contentPanGesture!)
+        }
+        
         self.delegate = self
         
         navigationBar.isHidden = true
@@ -307,6 +316,16 @@ extension XYNavigationController : UIGestureRecognizerDelegate{
             return false
         }
         
+        if gestureRecognizer == self.contentPanGesture {
+            if #available(iOS 26.0, *) {
+                interactiveContentPopGestureRecognizer?.isEnabled = false
+            }
+            if self.viewControllers.count == 1 {
+                return false
+            }
+
+            return self.viewControllers.last!.xy_isContentPopGestureEnable
+        }
         return false
     }
 }

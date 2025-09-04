@@ -83,6 +83,7 @@ class GreenViewController: BaseViewController {
         nav_titleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 35), .foregroundColor: UIColor.red]
         nav_setBarTintColor(color: .green)
 
+        xy_isContentPopGestureEnable = false
     }
     
     @objc
