@@ -5,6 +5,17 @@
 [![License](https://img.shields.io/cocoapods/l/XYNav.svg?style=flat)](https://cocoapods.org/pods/XYNav)
 [![Platform](https://img.shields.io/cocoapods/p/XYNav.svg?style=flat)](https://cocoapods.org/pods/XYNav)
 
+## iOS 26
+
+iOS 26 系统新增了全屏侧滑返回手势能力, 默认开启, 即任何页面默认支持全屏侧滑返回能力, 此能力和之前的边缘侧滑返回是两个手势.
+
+XYNav 提供了 `xy_isContentPopGestureEnable` 属性来管理当前页面是否开启全屏侧滑返回能力, 默认开启(同系统原则)
+
+```
+// 使用方式: currentVC 是当前可视页面
+currentVC.xy_isContentPopGestureEnable = true / false
+```
+
 ## iOS 15
 
 iOS 15 上苹果改变了导航条的部分默认行为，开发者可以自己设置 UINavigationBar 的各个 Appearance 属性，以确保在各种情况下 UINavigationBar 的正常展示
